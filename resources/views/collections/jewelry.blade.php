@@ -28,6 +28,7 @@
       {{--|END HIDDEN NAVIGATION |-}}
 
       {{--| CONTENT |--}}
+      <h1 class="font-bold tet-3xl underline">Jewelry Page</h1>
       {{--| END CONTENT |--}}
 
 
