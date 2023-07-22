@@ -4,6 +4,7 @@ use App\Http\Controllers\About_TopperController;
 use App\Http\Controllers\Contact_UsController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\JewelryController;
+use App\Http\Controllers\Newest_WatchesController;
 use App\Http\Controllers\Pre_OwnedController;
 use App\Http\Controllers\Topper_BlogController;
 use App\Http\Controllers\WatchesController;
@@ -35,6 +36,8 @@ Route::prefix('collections')->group(function(){
     Route::get('/pre-owned', [Pre_OwnedController::class, 'index'])->name('collections.pre-owned');
     //Jewelry Controller
     Route::get('/jewelry', [JewelryController::class, 'index'])->name('collections.jewelry');
+    // Newest-watches
+    Route::get('/newest-watches', [Newest_WatchesController::class, 'index'])->name('collections.newest-watches');
 });
 
 //Prefix Pages Route Group
