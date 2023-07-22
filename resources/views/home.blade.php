@@ -212,6 +212,82 @@
       </a>
       {{-- Treding at Topper --}}
 
+      {{-- NEWEST WATCHES SECTION --}}
+      <section class="w-full flex justify-center items-center my-10 border-b-[1px] pb-10">
+        <div
+          class="w-[90%] mx-auto bg-[url('/public/images/newest-watches-bg_449df3c6-aec2-464c-8861-1d5a3962d439.jpg')] bg-no-repeat bg-cover bg-center h-28 flex justify-center items-center flex-col md:h-72">
+          <h4 class="text-white text-3xl font-semibold uppercase md:text-7xl">Newest</h4>
+          <hr class="w-[100px] md:w-[400px] text-white">
+          <h3 class="text-white text-3xl font-bold uppercase md:text-7xl">Watches</h3>
+        </div>
+      </section>
+      {{-- END NEWEST WATCHES SECTION --}}
+
+      {{-- BESPOKE JEWELRY --}}
+      {{-- Titlle --}}
+      <section class="w-[90%] mx-auto flex justify-center items-center flex-col my-7">
+        <h2 class="text-center text-3xl font-poppins font-bold uppercase">Bespoke Jewelry
+
+        </h2>
+        <p class="text-base font-poppins text-gray-700 font-light mt-5 text-center">Create a stunning, one-of-a-kind
+          heirloom in
+          four
+          easy steps</p>
+      </section>
+      {{-- Images --}}
+      {{-- On medium, large, big screen --}}
+      <section class="hidden md:flex md:justify-center md:items-center md:w-[90%] md:mx-auto mb-10">
+        <img src="{{ url('/images/bespoke-jewelry.png') }}" alt="">
+      </section>
+      {{-- On small device  from 320px --}}
+      <section class="flex justify-center items-center w-[90%] mx-auto mb-10 md:hidden">
+        <img src="{{ url('/images/bespoke-jewelry-sml.png') }}" alt="">
+      </section>
+      {{-- Butoon Get Started --}}
+      <a href="{{ route('collections.newest-watches') }}"
+        class="w-[90%] mx-auto flex justify-center items-center my-10 border-b-[1px] pb-10">
+        <button class="bg-black text-white uppercase font-bold font-poppins text-lg py-2 px-4">Get Started</button>
+      </a>
+      {{-- END BESPOKE JEWELRY --}}
+
+      {{-- Boxes information --}}
+      <section class="w-full">
+        <div class="w-[90%] mx-auto flex justify-between items-center flex-col  sm:flex-row sm:flex-wrap">
+          <a href="#" class="block w-[280px] mx-auto mb-10 sm:w-[49%] sm:mx-0">
+            <img src="{{ url('/images/homepage-topper-limited_4f2780ae-376b-4649-bd68-5edd07b36c26_720x.webp') }}"
+              alt="" class="w-full h-full object-cover object-center">
+          </a>
+          <a href="#" class="block w-[280px] mx-auto mb-10 sm:w-[49%] sm:mx-0">
+            <img src="{{ url('/images/homepage-pre-owned-select_7701b15b-3449-4fc7-b244-4b42bd95ebca_720x.webp') }}"
+              alt="" class="w-full h-full object-cover object-center">
+          </a>
+          <div
+            class="bg-[url('/public/images/newsletter-bg_7e62ea89-5d7d-4d1d-9782-3ab3850df472.webp')] bg-no-repeat bg-cover bg-center flex flex-col justify-center items-center w-[280px] mx-auto mb-10 h-[400px] sm:w-full">
+            <h4 class="text-white text-3xl text-center font-poppins font-bold">
+              <a href="#">Get the Topper Weekly</a>
+            </h4>
+            <p class="text-white text-center text-sm font-poppins my-5 sm:px-10">Subscribe for first access to
+              new
+              releases,
+              special
+              offers,
+              and exclusive pre-owned
+              additions</p>
+            <form class="flex justify-center items-center flex-col w-56 border border-white sm:flex-row sm:w-96">
+              <input type="email" placeholder="Email Address"
+                class="w-full py-2 outline-none bg-transparent text-center sm:w-64">
+              <button class="text-black uppercase w-full text-base py-2 bg-gray-200 font-semibold sm:w-30">Sign
+                Up</button>
+            </form>
+          </div>
+        </div>
+      </section>
+      {{-- End Boxes information --}}
+
+      {{-- Gift Cart --}}
+
+      {{-- End Gift Cart --}}
+
       {{--| END CONTENT |--}}
 
 
