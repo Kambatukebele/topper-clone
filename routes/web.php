@@ -1,5 +1,12 @@
 <?php
 
+use App\Http\Controllers\About_TopperController;
+use App\Http\Controllers\Contact_UsController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\JewelryController;
+use App\Http\Controllers\Pre_OwnedController;
+use App\Http\Controllers\Topper_BlogController;
+use App\Http\Controllers\WatchesController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,30 +24,28 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/home', function () {
-    return view('home');
-})->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 
-Route::get('/collections/watches', function (){
-    return view('collections.watches'); 
-})->name('collections.watches');
+// Prefix Collections Route Group
 
-Route::get('collections/pre-owned', function (){
-    return view('collections/pre-owned');
-})->name('collections.pre-owned');
+Route::prefix('collections')->group(function(){
+    //Watches Controller
+    Route::get('/watches', [WatchesController::class, 'index'])->name('collections.watches');
+    //Pre Owned Controller
+    Route::get('/pre-owned', [Pre_OwnedController::class, 'index'])->name('collections.pre-owned');
+    //Jewelry Controller
+    Route::get('/jewelry', [JewelryController::class, 'index'])->name('collections.jewelry');
+});
 
-Route::get('/collections/jewelry', function (){
-    return view('collections.jewelry');
-})->name('collections.jewelry');
+//Prefix Pages Route Group
+Route::prefix('pages')->group(function(){
+    //About-Topper Controller
+    Route::get('/about-topper', [About_TopperController::class, 'index'])->name('pages.about-topper');
+    //Contact Us COntrolller
+    Route::get('/contact-us', [Contact_UsController::class, 'index'])->name('pages.contact-us');
+});
 
-Route::get('/pages/about-topper', function (){
-    return view('pages.about-topper');
-})->name('pages.about-topper');
-
-Route::get('/pages/contact-us', function (){
-    return view('pages.contact-us');
-})->name('pages.contact-us');
-
-Route::get('/blogs/topper-blog', function (){
-    return view('blogs.topper-blog');
-})->name('blogs.topper-blog');
+Route::prefix('blogs')->group(function(){
+    //TopperBlog Controller
+    Route::get('/topper-blog', [Topper_BlogController::class, 'index'])->name('blogs.topper-blog');
+});
