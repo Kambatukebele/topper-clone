@@ -285,7 +285,28 @@
       {{-- End Boxes information --}}
 
       {{-- Gift Cart --}}
-
+      {{-- <section class="w-full bg-red-300 block">
+        <div
+          class="w-[90%] mx-auto bg-yellow-400 lg:flex lg:justify-center lg:items-center lg:min-w-[600px] lg:bg-green-500">
+          <div class="w-[220px] mx-auto sm:w-[420px] lg:w-[450px]">
+            <img src="{{ url('/images/gift-card_540x.webp') }}" class="w-full h-full object-cover object-center"
+      alt="">
+      </div>
+      <div class="w-[220px] mx-auto sm:w-[420px]">
+        <h3 class="text-4xl font-bold text-left my-5">Gift Card</h3>
+        <p class="text-base font-poppins text-left">
+          Enjoy an easy, no-hassle approach to shopping with gift cards in denominations of $250, $500, and a
+          generous $1000,
+          perfect for those special occasions. With no expiration date and the ability to shop from the comfort of
+          home, this
+          premium gift card is sure to make your next gift extra memorable.
+        </p>
+        <a href="{{ route('collections.newest-watches') }}" class="flex justify-start items-center mt-4">
+          <button class="bg-black text-white uppercase font-bold font-poppins text-lg py-2 px-4">Shop Now</button>
+        </a>
+      </div>
+      </div>
+      </section> --}}
       {{-- End Gift Cart --}}
 
       {{--| END CONTENT |--}}
