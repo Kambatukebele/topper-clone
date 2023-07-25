@@ -285,29 +285,126 @@
       {{-- End Boxes information --}}
 
       {{-- Gift Cart --}}
-      {{-- <section class="w-full bg-red-300 block">
-        <div
-          class="w-[90%] mx-auto bg-yellow-400 lg:flex lg:justify-center lg:items-center lg:min-w-[600px] lg:bg-green-500">
-          <div class="w-[220px] mx-auto sm:w-[420px] lg:w-[450px]">
-            <img src="{{ url('/images/gift-card_540x.webp') }}" class="w-full h-full object-cover object-center"
-      alt="">
-      </div>
-      <div class="w-[220px] mx-auto sm:w-[420px]">
-        <h3 class="text-4xl font-bold text-left my-5">Gift Card</h3>
-        <p class="text-base font-poppins text-left">
-          Enjoy an easy, no-hassle approach to shopping with gift cards in denominations of $250, $500, and a
-          generous $1000,
-          perfect for those special occasions. With no expiration date and the ability to shop from the comfort of
-          home, this
-          premium gift card is sure to make your next gift extra memorable.
-        </p>
-        <a href="{{ route('collections.newest-watches') }}" class="flex justify-start items-center mt-4">
-          <button class="bg-black text-white uppercase font-bold font-poppins text-lg py-2 px-4">Shop Now</button>
-        </a>
-      </div>
-      </div>
-      </section> --}}
+      <section class="w-full block my-10">
+        <div class="w-[90%] mx-auto lg:w-[950px] lg:flex lg:justify-center lg:items-center ">
+          <div class="w-[280px] mx-auto sm:w-[420px] lg:w-[450px]">
+            <img src="{{ url('/images/gift-card_540x.webp') }}" class="w-full h-full object-cover object-center" alt="">
+          </div>
+          <div class="w-[280px] mx-auto sm:w-[420px] lg:w-[450px]">
+            <h3 class="text-4xl font-bold text-left my-5">Gift Card</h3>
+            <p class="text-base font-poppins text-left">
+              Enjoy an easy, no-hassle approach to shopping with gift cards in denominations of $250, $500, and a
+              generous $1000,
+              perfect for those special occasions. With no expiration date and the ability to shop from the comfort of
+              home, this
+              premium gift card is sure to make your next gift extra memorable.
+            </p>
+            <a href="{{ route('collections.newest-watches') }}" class="flex justify-start items-center mt-4">
+              <button class="bg-black text-white uppercase font-bold font-poppins text-lg py-2 px-4">Shop Now</button>
+            </a>
+          </div>
+        </div>
+      </section>
       {{-- End Gift Cart --}}
+
+      {{-- Lastest from topper --}}
+      {{-- Title --}}
+      <section class="w-[90%] mx-auto flex justify-center items-center my-10">
+        <h2 class="text-center text-3xl font-poppins font-bold">The Latest from Topper</h2>
+      </section>
+      <section class="w-full">
+        <div class="w-[90%] mx-auto flex flex-col justify-center items-center lg:flex-row">
+          <div class="w-full my-4 flex flex-col justify-center items-center">
+            <div class="w-[285px] lg:w-[300px] xl:w-[350px]">
+              <img src="{{ url('/images/unnamed_1ff41eaf-8211-4759-90fc-f49fc98d15f3_360x.avif') }}"
+                class="w-full h-full object-cover object-center" alt="">
+            </div>
+            <div class="w-[260px] mx-auto py-3 lg:w-[300px] xl:w-[350px]">
+              <h3 class="text-lg font-semibold text-center font-poppins mb-3 ">Introducing Topper's First Look
+                Event for
+                2023
+              </h3>
+              <p class="text-base font-normal text-center font-poppins text-gray-500 mb-3">Like Christmas in
+                Springtime,
+                Watches & Wonders
+                mania swept across the watch community a few short
+                weeks ago, bringing
+                with it a tornado of amazing new releases that we can't...
+              </p>
+              <a href="#" class="flex justify-center items-center">
+                <button class="uppercase font-semibold">Read
+                  More
+                </button>
+              </a>
+            </div>
+          </div>
+
+          <div class="w-full my-4 flex flex-col justify-center items-center">
+            <div class="w-[285px] lg:w-[300px] xl:w-[350px]">
+              <img src="{{ url('/images/unnamed_1ff41eaf-8211-4759-90fc-f49fc98d15f3_360x.avif') }}"
+                class="w-full h-full object-cover object-center" alt="">
+            </div>
+            <div class="w-[260px] mx-auto py-3 lg:w-[300px] xl:w-[350px]">
+              <h3 class="text-lg font-semibold text-center font-poppins mb-3 ">Introducing Topper's First Look
+                Event for
+                2023
+              </h3>
+              <p class="text-base font-normal text-center font-poppins text-gray-500 mb-3">Like Christmas in
+                Springtime,
+                Watches & Wonders
+                mania swept across the watch community a few short
+                weeks ago, bringing
+                with it a tornado of amazing new releases that we can't...
+              </p>
+              <a href="#" class="flex justify-center items-center">
+                <button class="uppercase font-semibold">Read
+                  More
+                </button>
+              </a>
+            </div>
+          </div>
+
+          <div class="w-full my-4 flex flex-col justify-center items-center">
+            <div class="w-[285px] lg:w-[300px] xl:w-[350px]">
+              <img src="{{ url('/images/unnamed_1ff41eaf-8211-4759-90fc-f49fc98d15f3_360x.avif') }}"
+                class="w-full h-full object-cover object-center" alt="">
+            </div>
+            <div class="w-[260px] mx-auto py-3 lg:w-[300px] xl:w-[350px]">
+              <h3 class="text-lg font-semibold text-center font-poppins mb-3 ">Introducing Topper's First Look
+                Event for
+                2023
+              </h3>
+              <p class="text-base font-normal text-center font-poppins text-gray-500 mb-3">Like Christmas in
+                Springtime,
+                Watches & Wonders
+                mania swept across the watch community a few short
+                weeks ago, bringing
+                with it a tornado of amazing new releases that we can't...
+              </p>
+              <a href="#" class="flex justify-center items-center">
+                <button class="uppercase font-semibold">Read
+                  More
+                </button>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </section>
+      {{-- End Lastest from topper --}}
+
+      {{-- We are an Authorized Dealer of --}}
+      {{-- Title --}}
+      <section class="w-[90%] mx-auto flex justify-center items-center bg-white my-10">
+        <h2 class="text-center text-3xl font-poppins font-bold">We are an Authorized Dealer of</h2>
+      </section>
+      <section class="w-full bg-white mb-5">
+        <div class="w-[90%] mx-auto">
+          <img src="{{ url('/images/watch-brands.jpg') }}" class="w-full h-full object-center object-cover" alt="">
+        </div>
+      </section>
+
+      {{-- End We are an Authorized Dealer of --}}
 
       {{--| END CONTENT |--}}
 
