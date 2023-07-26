@@ -31,8 +31,8 @@
 </nav>
 
 {{-- Watches Mega menu --}}
-<section>
-    <div>
+<section class="w-full h-[500px] bg-white">
+    <div class="w-[90%] mx-auto h-full">
         {{-- Top Brands --}}
         <div>
             <h4>Top brands</h4>
