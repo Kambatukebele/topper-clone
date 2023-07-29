@@ -28,7 +28,41 @@
       {{--|END HIDDEN NAVIGATION |-}}
 
       {{--| CONTENT |--}}
-      <h1 class="font-bold tet-3xl underline">Watches Page</h1>
+      {{-- On small device from 320px to 768px --}}
+      {{-- title --}}
+      <section class="w-full my-5">
+        <div class="w-[90%] mx-auto">
+          <div class="font-poppins text-3xl font-bold">
+            Watches
+          </div>
+        </div>
+      </section>
+      {{-- Features and filter --}}
+      <section class="w-full my-5">
+        <div class="w-[90%] mx-auto flex justify-between items-center">
+          <div class="w-[150px] sm:flex sm:justify-between sm:items-center sm:w-[300px]">
+            <div class="hidden sm:block sm:w-[70px] sm:text-gray-500">
+              Sort by
+            </div>
+            <form class="w-full sm:w-[230px]">
+              <select name="featured" id="" class="w-full p-2 bg-transparent border text-gray-500">
+                <option value="featured">Featured</option>
+                <option value="best-selling">Best Selling</option>
+                <option value="alphabetically-a-z">Alphabetically A-Z</option>
+                <option value="alphabetically-z-a">Alphabetically Z-A</option>
+                <option value="price-low-to-high">Price, low to high</option>
+                <option value="price-high-to-low">Price, high to low</option>
+                <option value="Date-new-to-old">Date, new to old</option>
+                <option value="Date-old-to-new">Date, old to new</option>
+              </select>
+            </form>
+          </div>
+          <div
+            class="bg-black text-white font-poppins uppercase w-[100px] cursor-pointer text-center text-base p-2 font-semibold rounded">
+            filters
+          </div>
+        </div>
+      </section>
       {{--| END CONTENT |--}}
 
 
