@@ -36,3 +36,24 @@ const showHideMenu = () => {
     });
 };
 showHideMenu();
+
+// ////////////////////////////////////////////
+//About topper show and hide on hover
+const AboutTopper = () => {
+    let subMenu = document.getElementsByClassName("aboutTopperShowHide")[0];
+    let aboutTopperBtn = document.getElementsByClassName("AboutTopperBtn")[0];
+
+    aboutTopperBtn.addEventListener("mouseenter", (e) => {
+        e.preventDefault();
+        subMenu.classList.remove("lg:hidden");
+        subMenu.classList.add("lg:block");
+    });
+
+    subMenu.addEventListener("mouseleave", (e) => {
+        e.preventDefault();
+        subMenu.classList.remove("lg:block");
+        subMenu.classList.add("lg:hidden");
+    });
+};
+
+AboutTopper();

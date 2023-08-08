@@ -20,9 +20,17 @@
             <li>Blog</li>
         </a>
         <a href="{{ route('pages.about-topper') }}"
-            class="lg:block lg:border lg:uppercase lg:text-center lg:w-[15%] lg:py-2">
+            class="AboutTopperBtn lg:block lg:border lg:uppercase lg:text-center lg:w-[15%] lg:py-2">
             <li>About Topper</li>
         </a>
+        <div
+            class="aboutTopperShowHide lg:hidden lg:absolute bg-white lg:shadow-xl lg:top-10 lg:right-[180px] z-10 xl:right-[230px] 2xl:right-[290px] p-3">
+            <a class="lg:block lg:border-b lg:p-1 lg:text-base" href="{{ route('pages.gold-platinum-buying') }}">We Buy
+                Gold & Platinum</a>
+            <a class="lg:block lg:border-b lg:p-1 lg:text-base"
+                href="{{ route('pages.watch-jewelry-trade-in') }}">Trad-in Watches & Jewelry</a>
+            <a class="lg:block lg:border-b lg:p-1 lg:text-base" href="{{ route('pages.financing') }}">Financing</a>
+        </div>
         <a href="{{ route('pages.contact-us') }}"
             class="lg:block lg:border lg:uppercase lg:text-center lg:w-[15%] lg:py-2">
             <li>Contact us</li>
