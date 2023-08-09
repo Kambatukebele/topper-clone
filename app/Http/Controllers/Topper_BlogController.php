@@ -10,4 +10,9 @@ class Topper_BlogController extends Controller
     {
         return view('blogs.topper-blog'); 
     }
+
+    public function show()
+    {
+        return view ('blogs.show-topper-blog'); 
+    }
 }

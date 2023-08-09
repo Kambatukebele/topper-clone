@@ -72,4 +72,6 @@ Route::prefix('pages')->group(function(){
 Route::prefix('blogs')->group(function(){
     //TopperBlog Controller
     Route::get('/topper-blog', [Topper_BlogController::class, 'index'])->name('blogs.topper-blog');
+    //Read one article topper-blog-show
+    Route::get('/topper-blog/topper-blog-show/', [Topper_BlogController::class, 'show'])->name('blogs.topper-blog');
 });
