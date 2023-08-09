@@ -9,6 +9,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\JewelryController;
 use App\Http\Controllers\Newest_WatchesController;
 use App\Http\Controllers\Pre_OwnedController;
+use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\Synchrony_financingController;
 use App\Http\Controllers\Topper_BlogController;
 use App\Http\Controllers\Watch_jewelry_trade_inController;
@@ -38,6 +39,8 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::prefix('collections')->group(function(){
     //Watches Controller
     Route::get('/watches', [WatchesController::class, 'index'])->name('collections.watches');
+    //Product
+    Route::get('/watches/products', [ProductsController::class, 'index'])->name('collections.products');
     //Pre Owned Controller
     Route::get('/pre-owned', [Pre_OwnedController::class, 'index'])->name('collections.pre-owned');
     //Jewelry Controller
