@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\About_TopperController;
 use App\Http\Controllers\Bill_caplanController;
 use App\Http\Controllers\Contact_UsController;
@@ -15,7 +17,6 @@ use App\Http\Controllers\Topper_BlogController;
 use App\Http\Controllers\Watch_jewelry_trade_inController;
 use App\Http\Controllers\WatchesController;
 use App\Http\Controllers\Wells_fargo_financingController;
-use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -75,3 +76,16 @@ Route::prefix('blogs')->group(function(){
     //Read one article topper-blog-show
     Route::get('/topper-blog/topper-blog-show/', [Topper_BlogController::class, 'show'])->name('blogs.topper-blog');
 });
+
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+require __DIR__.'/auth.php';
