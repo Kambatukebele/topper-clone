@@ -11,6 +11,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\JewelryController;
 use App\Http\Controllers\Newest_WatchesController;
 use App\Http\Controllers\Pre_OwnedController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\Synchrony_financingController;
 use App\Http\Controllers\Topper_BlogController;
@@ -77,10 +78,15 @@ Route::prefix('blogs')->group(function(){
     Route::get('/topper-blog/topper-blog-show/', [Topper_BlogController::class, 'show'])->name('blogs.topper-blog');
 });
 
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::prefix('/')->group(function(){
+    //Dashboard
+    Route::get('dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+    //Products
+    Route::get('product', [ProductController::class, 'index'])->name('product.index');
+    Route::get('product/create', [ProductController::class, 'create'])->name('product.create');
+})->middleware(['auth', 'verified']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
