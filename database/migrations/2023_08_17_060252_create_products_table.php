@@ -30,7 +30,7 @@ return new class extends Migration
             $table->char('product_collection', 50);
             $table->char('product_case', 50)->nullable();
             $table->char('product_mouvement', 50)->nullable();
-            $table->char('product_material', 50)->nullable();
+            $table->char('product_material', 50);
             $table->string('product_tags');
             $table->string('SKU'); 
             $table->timestamps();

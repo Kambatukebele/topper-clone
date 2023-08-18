@@ -5,7 +5,7 @@
         </h2>
     </x-slot>
     <div
-        class="bg-white rounded-lg border border-gray-300 shadow-md mt-5 w-[90%] mx-auto overflow-scroll  whitespace-nowrap xl:w-[1200px] xl:mx-auto">
+        class="bg-white rounded-lg border border-gray-300 shadow-md mt-5 w-[90%] mx-auto overflow-scroll  whitespace-nowrap xl:w-[1200px] xl:mx-auto xl:overflow-hidden">
         <!-- Titles  -->
         <div class="flex justify-between items-center border border-b-gray-300 py-2 px-5">
             <!-- Left -->
