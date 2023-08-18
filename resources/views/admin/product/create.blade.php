@@ -5,106 +5,132 @@
         </h2>
     </x-slot>
 
-    <form>
+    <form method="POST" class="w-full lg:w-[900px] lg:mx-auto lg:flex lg:justify-between lg:items-start">
+        @csrf
         <!-- Left Side -->
-        <div>
+        <div class="w-[90%] mx-auto md:w-[560px]  lg:w-[510px]">
             <!-- Title and Description Block -->
-            <div>
+            <div class="w-full bg-white my-5 p-3 border border-gray-300 shadow-md rounded-lg">
                 <!-- Title -->
-                <div>
-                    <div>
-                        <label for="title">Title</label>
+                <div class="block w-full">
+                    <div class="block">
+                        <label for="title" class="font-light text-sm text-gray-500">Title</label>
                     </div>
-                    <div>
-                        <input
-                            type="text"
-                            name="title"
-                            placeholder="Short sleeve t-shirt"
-                        />
+                    <div class="block">
+                        <input type="text" name="title" placeholder="Short sleeve t-shirt"
+                            class="rounded-lg w-full text-sm" />
                     </div>
                 </div>
                 <!-- Description -->
-                <div>
-                    <div>
-                        <label for="description">Description</label>
+                <div class="mt-2 block w-full">
+                    <div class="block">
+                        <label for="description" class="font-light text-sm text-gray-500">Description</label>
                     </div>
-                    <div>
-                        <textarea
-                            name="description"
-                            cols="30"
-                            rows="10"
-                        ></textarea>
+                    <div class="block">
+                        <textarea name="description" cols="30" rows="5" class="w-full rounded-lg text-sm"></textarea>
                     </div>
                 </div>
             </div>
             <!-- Images Block -->
-            <div>
+            <div class="w-full my-5 bg-white shadow-md p-3 border border-gray-300 rounded-lg">
                 <!-- Main product Image -->
-                <div>
-                    <div>
-                        <label for="main-image">Main Image</label>
-                    </div>
-                    <div>
-                        <input type="file" name="main_photo" />
+                <!-- Images Title -->
+                <div class="font-semibold text-sm text-black my-3">
+                    Media
+                </div>
+                <div class="border border-dashed p-5 my-3">
+                    <div class="block lg:mx-20">
+                        <label for="main_photo" class="text-xs">
+                            <input type="file" name="main_photo" value="">
+                            <small class="text-xs text-gray-500">Main Image : PNG,JPG, JPEG, WEBP</small>
+                        </label>
                     </div>
                 </div>
                 <!-- Photo one -->
-                <div>
-                    <div>
-                        <label for="photo_one">Photo 1</label>
-                    </div>
-                    <div>
-                        <input type="file" name="photo_one" />
+                <div class="border border-dashed p-5 my-3">
+                    <div class="block lg:mx-20">
+                        <label for="main_photo" class="text-xs">
+                            <input type="file" name="photo_one" value="">
+                            <small class="text-xs text-gray-500">Image one : PNG,JPG, JPEG, WEBP</small>
+                        </label>
+
                     </div>
                 </div>
                 <!-- Photo two -->
-                <div>
-                    <div>
-                        <label for="photo_two">Photo 2</label>
-                    </div>
-                    <div>
-                        <input type="file" name="photo_two" />
+                <div class="border border-dashed p-5 my-3">
+                    <div class="block lg:mx-20">
+                        <label for="main_photo" class="text-xs">
+                            <input type="file" name="photo_two" value="">
+                            <small class="text-xs text-gray-500">Image two : PNG,JPG, JPEG, WEBP</small>
+                        </label>
+
                     </div>
                 </div>
                 <!-- Photo three -->
-                <div>
-                    <div>
-                        <label for="photo_three">Photo 3</label>
-                    </div>
-                    <div>
-                        <input type="file" name="photo_three" />
+                <div class="border border-dashed p-5 my-3">
+                    <div class="block lg:mx-20">
+                        <label for="main_photo" class="text-xs">
+                            <input type="file" name="photo_three" value="">
+                            <small class="text-xs text-gray-500">Image three : PNG,JPG, JPEG, WEBP</small>
+                        </label>
+
                     </div>
                 </div>
                 <!-- Logo brand -->
-                <div>
-                    <div>
-                        <label for="logo_brand">Logo Image</label>
-                    </div>
-                    <div>
-                        <input type="file" name="logo_brand" />
+                <div class="border border-dashed p-5 my-3">
+                    <div class="block lg:mx-20">
+                        <label for="main_photo" class="text-xs">
+                            <input type="file" name="logo_brand" value="">
+                            <small class="text-xs text-gray-500">Logo Brand : PNG,JPG, JPEG, WEBP</small>
+                        </label>
                     </div>
                 </div>
             </div>
             <!-- Prices Block -->
-            <div>
-                <div>Pricing</div>
+            <div class="w-full my-5 bg-white shadow-md p-3 border border-gray-300 rounded-lg">
+                <div class="font-semibold text-sm text-black my-3">Pricing</div>
                 <div>
-                    <div>
-                        <div>
-                            <label for="price">Price</label>
+                    <div class="block w-full">
+                        <div class="block">
+                            <label for="price" class="font-light text-sm text-gray-500">Price</label>
                         </div>
-                        <div>
-                            <input type="text" name="price" />
+                        <div class="block">
+                            <input type="text" name="price" placeholder="$100" class="rounded-lg w-full text-sm" />
                         </div>
                     </div>
-                    <div>
-                        <div>
-                            <label for="compare_at_price"
-                                >Compare-at Price</label
-                            >
+                    <div class="block w-full mt-2">
+                        <div class="block">
+                            <label for="compare_at_price" class="font-light text-sm text-gray-500">Compare-at
+                                Price</label>
                         </div>
-                        <div>
-                            <input type="text" name="compare_at_price" />
+                        <div class="block">
+                            <input type="text" name="compare_at_price" placeholder="$100"
+                                class="rounded-lg w-full text-sm" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Product Inventory -->
+            <div class="w-full my-5 bg-white shadow-md p-3 border border-gray-300 rounded-lg">
+                <div class="font-semibold text-sm text-black my-3">Inventory</div>
+                <div>
+                    <div class="block w-full">
+                        <div class="block">
+                            <label for="price" class="font-light text-sm text-gray-500">In Stock</label>
+                        </div>
+                        <div class="block">
+                            <input type="text" name="inventory" placeholder="1100" class="rounded-lg w-full text-sm" />
+                        </div>
+                    </div>
+                    <div class="block mt-2">
+                        <div class="block w-full">
+                            <div class="block">
+                                <label for="price" class="font-light text-sm text-gray-500">SKU</label>
+                            </div>
+                            <div class="block">
+                                <input type="text" name="sku" placeholder="Topper9893345"
+                                    class="rounded-lg w-full text-sm" />
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -112,37 +138,103 @@
         </div>
 
         <!-- Right Side -->
-        <div>
+        <div class="w-[90%] mx-auto md:w-[560px] lg:w-[300px]">
             <!-- Status -->
-            <div>
-                <div>Status</div>
-                <div>
-                    <select name="status" id="">
+            <div class="w-full my-5 bg-white shadow-md p-3 border border-gray-300 rounded-lg">
+                <div class="font-semibold text-sm text-black my-3">Status</div>
+                <div class="block w-full mt-2">
+                    <select name="status" id="" class="rounded-lg w-full text-sm">
                         <option value="draft">Draft</option>
                         <option value="Active">Active</option>
                     </select>
                 </div>
             </div>
-            <div>
-                <div>Product Organisation</div>
-                <div>
-                    <div>
-                        <label for="product_category">Product Category</label>
+            <div class="w-full my-5 bg-white shadow-md p-3 border border-gray-300 rounded-lg">
+                <div class="font-semibold text-sm text-black my-3">Product Organisation</div>
+                <div class="block w-full mt-2">
+                    <div class="block">
+                        <label for="product_category" class="font-light text-sm text-gray-500">Product Gender</label>
                     </div>
-                    <div><input type="text" name="product_category" /></div>
+                    <div>
+                        <select name="product_gender" id="" class="rounded-lg w-full text-sm">
+                            <option value="man">Man</option>
+                            <option value="woman">Woman</option>
+                        </select>
+                    </div>
                 </div>
+                <div class="block w-full mt-2">
+                    <div class="block">
+                        <label for="product_type" class="font-light text-sm text-gray-500">Product Type</label>
+                    </div>
+                    <div><input type="text" name="product_type" placeholder="active"
+                            class="rounded-lg w-full text-sm" /></div>
+                </div>
+                <div class="block w-full mt-2">
+                    <div class="block">
+                        <label for="collections" class="font-light text-sm text-gray-500">Collections</label>
+                    </div>
+                    <div>
+                        <select name="collections" class="rounded-lg w-full text-sm">
+                            <option value="watches">Watches</option>
+                            <option value="pre-owned">Pre-Owned</option>
+                            <option value="jewelry">Jewelry</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="block w-full mt-2">
+                    <div class="block">
+                        <label for="tags" class="font-light text-sm text-gray-500">Tags</label>
+                    </div>
+                    <div><input type="text" name="tags" placeholder="Luxury" class="rounded-lg w-full text-sm" /></div>
+                </div>
+            </div>
+            <!-- Addtional Information -->
+            <div class="w-full my-5 bg-white shadow-md p-3 border border-gray-300 rounded-lg">
+                <div class="font-semibold text-sm text-black my-3">Additional Information</div>
                 <div>
-                    <div><label for="product_type">Product Type</label></div>
-                    <div><input type="text" name="product_type" /></div>
+                    <div class="block w-full">
+                        <div class="block">
+                            <label for="price" class="font-light text-sm text-gray-500">Add your product brand</label>
+                        </div>
+                        <div class="block">
+                            <input type="text" name="brand" placeholder="Prada" class="rounded-lg w-full text-sm" />
+                        </div>
+                    </div>
                 </div>
-                <div>
-                    <div><label for="collections">Collections</label></div>
-                    <div><input type="text" name="collections" /></div>
+                <div class="block mt-2">
+                    <div class="block w-full">
+                        <div class="block">
+                            <label for="price" class="font-light text-sm text-gray-500">Case</label>
+                        </div>
+                        <div class="block">
+                            <input type="text" name="brand" placeholder="Prada" class="rounded-lg w-full text-sm" />
+                            <small class="xs text-gray-500 font-light">This apply only for watches
+                                product</small>
+                        </div>
+                    </div>
                 </div>
-                <div>
-                    <div><label for="tags">Tags</label></div>
-                    <div><input type="text" name="tags" /></div>
+                <div class="block mt-2">
+                    <div class="block w-full">
+                        <div class="block">
+                            <label for="price" class="font-light text-sm text-gray-500">Movement</label>
+                        </div>
+                        <div class="block">
+                            <input type="text" name="movement" placeholder="Prada" class="rounded-lg w-full text-sm" />
+                            <small class="xs text-gray-500 font-light">This apply only for watches product</small>
+                        </div>
+                    </div>
                 </div>
+                <div class="block mt-2">
+                    <div class="block w-full">
+                        <div class="block">
+                            <label for="price" class="font-light text-sm text-gray-500">Material</label>
+                        </div>
+                        <div class="block">
+                            <input type="text" name="material" placeholder="Prada" class="rounded-lg w-full text-sm" />
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </form>

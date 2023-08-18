@@ -23,6 +23,7 @@ return new class extends Migration
             $table->char('product_brand', 100);
             $table->char('product_price', 50);
             $table->char('product_compare_at_price', 50)->nullable();
+            $table->string('product_inventory');
             $table->char('product_status', 20)->default('draft');
             $table->char('product_gender', 50);
             $table->char('product_type', 50);
