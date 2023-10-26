@@ -30,4 +30,17 @@ class Product extends Model
     //     "movement",
     //     "material",
     // ];
+
+    public function images()
+    {
+        return $this->hasMany(ProductImage::class);
+    }
+    public function brands()
+    {
+        return $this->hasMany(ProductBrand::class);
+    }
+    public function Tags()
+    {
+        return $this->hasMany(ProductTag::class);
+    }
 }
