@@ -1,7 +1,7 @@
 <header class="hidden lg:block lg:w-full lg:py-6 lg:border-b-[1px]">
     <div class="lg:w-[90%] lg:mx-auto lg:flex lg:justify-between lg:items-center">
         {{-- LOGO --}}
-        <a href="#" class="block">
+        <a href="{{ route('home') }}" class="block">
             <img class="w-[170px]" src="{{ url('/images/topper-1940-logo.svg.svg') }}" alt="">
         </a>
         {{--SEARCH --}}
