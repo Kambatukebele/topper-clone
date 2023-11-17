@@ -87,7 +87,7 @@ Route::prefix('/')->group(function(){
     Route::get('product', [ProductController::class, 'index'])->name('product.index');
     Route::get('product/create', [ProductController::class, 'create'])->name('product.create');
     Route::post('/product', [ProductController::class, 'store'])->name('product.store');
-})->middleware(['auth', 'verified']);
+})->middleware(['auth', 'verified', 'admin']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
