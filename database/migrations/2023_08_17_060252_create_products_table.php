@@ -13,20 +13,24 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->char('product_title', 100);
-            $table->longText('product_description');
-            $table->binary('product_main_photo');           
-            $table->char('product_price', 50);
-            $table->char('product_compare_at_price', 50)->nullable();
-            $table->string('product_inventory');
-            $table->char('product_status', 20)->default('comming_soon');
-            $table->char('product_gender', 50);
-            $table->char('product_type', 50);
-            $table->char('product_collection', 50);
-            $table->char('product_case', 50)->nullable();
-            $table->char('product_mouvement', 50)->nullable();
-            $table->char('product_material', 50);
-            $table->string('SKU'); 
+            $table->char('title', 100);
+            $table->longText('description');
+            $table->binary('main_photo');
+            $table->binary('photo_one')->nullable();
+            $table->binary('photo_two')->nullable();
+            $table->binary('photo_three')->nullable();
+            $table->binary('photo_four')->nullable();          
+            $table->char('price', 50);
+            $table->char('compare_at_price', 50)->nullable();
+            $table->string('stock')->default(0);
+            $table->char('status', 20)->default('comming_soon');
+            $table->string('sku'); 
+            $table->foreignId('product_cases_id');
+            $table->foreignId('product_mouvements_id');
+            $table->foreignId('product_types_id');
+            $table->foreignId('product_genders_id');
+            $table->foreignId('product_collections_id');
+            $table->foreignId('product_materials_id');
             $table->timestamps();
         });
     }
