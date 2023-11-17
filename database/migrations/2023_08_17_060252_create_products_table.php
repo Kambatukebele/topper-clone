@@ -25,6 +25,7 @@ return new class extends Migration
             $table->string('stock')->default(0);
             $table->char('status', 20)->default('comming_soon');
             $table->string('sku'); 
+            $table->foreignId('product_brands_id');
             $table->foreignId('product_cases_id');
             $table->foreignId('product_mouvements_id');
             $table->foreignId('product_types_id');

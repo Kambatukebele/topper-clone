@@ -14,7 +14,7 @@ class ProductController extends Controller
      */
     public function index(): View
     {
-        return view('admin.product.index');
+        return view('admin.products.index');
     }
 
     /**
@@ -22,7 +22,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('admin.product.create'); 
+        return view('admin.products.create'); 
     }
 
     /**
@@ -38,20 +38,12 @@ class ProductController extends Controller
             "photo_one"  => "required|image|mimes:jpg,png,webp,jpeg|max:2048",
             "photo_two"  => "required|image|mimes:jpg,png,webp,jpeg|max:2048",
             "photo_three"  => "required|image|mimes:jpg,png,webp,jpeg|max:2048",
-            "logo_brand" => "required|image|mimes:jpg,png,webp,jpeg|max:2048",
+            "photo_four"  => "required|image|mimes:jpg,png,webp,jpeg|max:2048",
             "price"  => "required|string",
             "compare_at_price"  => "required|string",
-            "inventory"  => "required|string",
+            "stock"  => "required|string",
             "sku"  => "required|string",
             "status"  => "required|string",
-            "product_gender"  => "required|string",
-            "product_type"  => "required|string",
-            "collections"  => "required|string",
-            "tags"  => "required|string",
-            "brand"  => "required|string",
-            "case"  => "required|string",
-            "movement"  => "required|string",
-            "material"  => "required|string",
         ]);
 
         //Moving images to the public folder
@@ -76,11 +68,11 @@ class ProductController extends Controller
         $sizePhotoThree = $request->file('photo_three')->getSize();
         $namePhotoThree = $newPhotoThree;
         $request->file('photo_three')->move(public_path('images'), $namePhotoThree);
-        // "logo_brand
-        $newLogoBrand = time() . '-' . $request->file('logo_brand')->getClientOriginalName();
-        $sizeLogoBrand = $request->file('logo_brand')->getSize();
-        $nameLogoBrand = $newLogoBrand;
-        $request->file('logo_brand')->move(public_path('images'), $nameLogoBrand);
+        // "photo_three"
+        $newPhotoFour = time() . '-' . $request->file('photo_three')->getClientOriginalName();
+        $sizePhotoFour = $request->file('photo_four')->getSize();
+        $namePhotoFour = $newPhotoFour;
+        $request->file('photo_three')->move(public_path('images'), $namePhotoFour);
 
         // Calling Product Model
         $product = new Product;
@@ -91,10 +83,10 @@ class ProductController extends Controller
         $product->product_photo_1 =  $namePhotoOne;
         $product->product_photo_2 =  $namePhotoTwo;
         $product->product_photo_3 =  $namePhotoThree; 
-        $product->product_logo_brand =  $nameLogoBrand;
+        $product->product_photo_4 =  $namePhotoFour; 
         $product->product_price = $request->price;
         $product->product_compare_at_price = $request->compare_at_price; 
-        $product->product_inventory = $request->inventory; 
+        $product->product_stock = $request->stock; 
         $product->SKU = $request->sku;
         $product->product_status = $request->status;
         $product->product_gender = $request->product_gender;

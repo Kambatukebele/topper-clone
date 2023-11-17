@@ -21,6 +21,7 @@ class Product extends Model
         "stock",
         "status",
         "sku",
+        "product_brand_id",
         "product_cases_id",
         "product_mouvements_id",
         "product_types_id",
@@ -29,16 +30,32 @@ class Product extends Model
         "product_materials_id",
     ];
 
-    // public function images()
-    // {
-    //     return $this->hasMany(ProductImage::class);
-    // }
-    // public function brands()
-    // {
-    //     return $this->hasMany(ProductBrand::class);
-    // }
-    // public function Tags()
-    // {
-    //     return $this->hasMany(ProductTag::class);
-    // }
+    public function product_brands()
+    {
+        return $this->hasOne(ProductBrand::class);
+    }
+    public function product_cases()
+    {
+        return $this->hasOne(ProductCase::class);
+    }
+    public function product_mouvements()
+    {
+        return $this->hasOne(ProductMouvement::class);
+    }
+    public function product_types()
+    {
+        return $this->hasOne(ProductType::class);
+    }
+    public function product_genders()
+    {
+        return $this->hasOne(ProductGender::class);
+    }
+    public function product_collections()
+    {
+        return $this->hasOne(ProductCollection::class);
+    }
+    public function product_materials()
+    {
+        return $this->hasOne(ProductMaterial::class);
+    }
 }
