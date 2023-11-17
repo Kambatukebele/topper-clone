@@ -16,9 +16,13 @@ class ProductBrandSeeder extends Seeder
     {
         DB::table('product_brands')->insert([
             'brand_name' => "Armin Strom",
+            'created_at' => Carbon::now()->toDateTimeString(),
+            'updated_at' => Carbon::now()->toDateTimeString(), 
         ]);
         DB::table('product_brands')->insert([
             'brand_name' => "Ball",
+            'created_at' => Carbon::now()->toDateTimeString(),
+            'updated_at' => Carbon::now()->toDateTimeString(), 
         ]);
         DB::table('product_brands')->insert([
             'brand_name' => "Bell & Ross",
