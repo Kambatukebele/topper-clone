@@ -174,7 +174,7 @@
                         </div>
                         @enderror
                     </div>
-                    <div class="block mt-2">
+                    {{-- <div class="block mt-2">
                         <div class="block w-full">
                             <div class="block">
                                 <label for="price" class="font-light text-sm text-gray-500">SKU</label>
@@ -189,7 +189,7 @@
                             </div>
                             @enderror
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>
@@ -215,8 +215,9 @@
                     </div>
                     <div>
                         <select name="product_gender" id="" class="rounded-lg w-full text-sm">
+                            <option selected value="">Choose</option>
                             @foreach ($genders as $gender)
-                            <option value="{{ $gender->gender_name }}">{{ Str::ucfirst($gender->gender_name) }}</option>
+                            <option value="{{ $gender->id }}">{{ Str::ucfirst($gender->gender_name) }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -227,8 +228,9 @@
                     </div>
                     <div>
                         <select name="product_type" id="" class="rounded-lg w-full text-sm">
+                            <option selected value="">Choose</option>
                             @foreach ($types as $type)
-                            <option value="{{ $type->type_name }}">{{ Str::ucfirst($type->type_name) }}</option>
+                            <option value="{{ $type->id }}">{{ Str::ucfirst($type->type_name) }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -244,13 +246,14 @@
                     </div>
                     <div>
                         <select name="collections" class="rounded-lg w-full text-sm">
+                            <option selected value="">Choose</option>
                             @foreach ($collections as $collection)
-                            <option value="{{ $collection->collection_name }}">{{ Str::ucfirst($collection->collection_name) }}</option>
+                            <option value="{{ $collection->id }}">{{ Str::ucfirst($collection->collection_name) }}</option>
                             @endforeach
                         </select>
                     </div>
                 </div>
-                <div class="block w-full mt-2">
+                {{-- <div class="block w-full mt-2">
                     <div class="block">
                         <label for="tags" class="font-light text-sm text-gray-500">Tags</label>
                     </div>
@@ -262,7 +265,7 @@
                         {{ $message }}
                     </div>
                     @enderror
-                </div>
+                </div> --}}
             </div>
             <!-- Addtional Information -->
             <div class="w-full my-5 bg-white shadow-md p-3 border border-gray-300 rounded-lg">
@@ -273,7 +276,12 @@
                             <label for="price" class="font-light text-sm text-gray-500">Add your product brand</label>
                         </div>
                         <div class="block">
-                            <input type="text" name="brand" placeholder="Prada" class="rounded-lg w-full text-sm" />
+                            <select name="brand" class="rounded-lg w-full text-sm">
+                                <option selected value="">Choose</option>
+                                @foreach ($brands as $brand)
+                                <option value="{{ $brand->id }}">{{ Str::ucfirst($brand->brand_name) }}</option>
+                                @endforeach
+                            </select>
                         </div>
                         @error('brand')
                         <div class="text-sm my-1  text-red-900 pl-3">
@@ -288,7 +296,12 @@
                             <label for="price" class="font-light text-sm text-gray-500">Case</label>
                         </div>
                         <div class="block">
-                            <input type="text" name="case" placeholder="Prada" class="rounded-lg w-full text-sm" />
+                            <select name="case" class="rounded-lg w-full text-sm">
+                                <option selected value="">Choose</option>
+                                @foreach ($cases as $case)
+                                <option value="{{ $case->id }}">{{ Str::ucfirst($case->case_name) }}</option>
+                                @endforeach
+                            </select>
                             <small class="xs text-gray-500 font-light">This apply only for watches
                                 product</small>
                         </div>
@@ -305,10 +318,15 @@
                             <label for="price" class="font-light text-sm text-gray-500">Movement</label>
                         </div>
                         <div class="block">
-                            <input type="text" name="movement" placeholder="Prada" class="rounded-lg w-full text-sm" />
+                            <select name="mouvement" class="rounded-lg w-full text-sm">
+                                <option selected value="">Choose</option>
+                                @foreach ($mouvements as $mouvement)
+                                <option value="{{ $mouvement->id }}">{{ Str::ucfirst($mouvement->mouvement_name) }}</option>
+                                @endforeach
+                            </select>
                             <small class="xs text-gray-500 font-light">This apply only for watches product</small>
                         </div>
-                        @error('movement')
+                        @error('mouvement')
                         <div class="text-sm my-1  text-red-900 pl-3">
                             {{ $message }}
                         </div>
@@ -321,7 +339,12 @@
                             <label for="price" class="font-light text-sm text-gray-500">Material</label>
                         </div>
                         <div class="block">
-                            <input type="text" name="material" placeholder="Prada" class="rounded-lg w-full text-sm" />
+                            <select name="material" class="rounded-lg w-full text-sm">
+                                <option selected value="">Choose</option>
+                                @foreach ($materials as $material)
+                                <option value="{{ $material->id }}">{{ Str::ucfirst($material->material_name) }}</option>
+                                @endforeach
+                            </select>
                         </div>
                         @error('material')
                         <div class="text-sm my-1  text-red-900 pl-3">

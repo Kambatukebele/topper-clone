@@ -23,15 +23,14 @@ return new class extends Migration
             $table->char('price', 50);
             $table->char('compare_at_price', 50)->nullable();
             $table->string('stock')->default(0);
-            $table->char('status', 20)->default('comming_soon');
-            $table->string('sku'); 
-            $table->foreignId('product_brands_id');
-            $table->foreignId('product_cases_id');
-            $table->foreignId('product_mouvements_id');
-            $table->foreignId('product_types_id');
-            $table->foreignId('product_genders_id');
-            $table->foreignId('product_collections_id');
-            $table->foreignId('product_materials_id');
+            $table->char('status', 20)->default('draft');
+            $table->foreignId('product_brands_id')->nullable();
+            $table->foreignId('product_cases_id')->nullable();
+            $table->foreignId('product_mouvements_id')->nullable();
+            $table->foreignId('product_types_id')->nullable();
+            $table->foreignId('product_genders_id')->nullable();
+            $table->foreignId('product_collections_id')->nullable();
+            $table->foreignId('product_materials_id')->nullable();
             $table->timestamps();
         });
     }
