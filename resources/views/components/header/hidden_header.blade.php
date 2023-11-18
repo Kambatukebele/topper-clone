@@ -9,7 +9,7 @@
         <div class="block w-[120px]">
             <a href="#">
                 <img class="w-[100%] h[100%] object-cover object-center"
-                    src="{{ url('/images/topper-1940-logo.svg.svg') }}" alt="">
+                    src="{{ url('/assets/images/topper-1940-logo.svg.svg') }}" alt="">
             </a>
         </div>
         {{-- CART --}}
@@ -23,10 +23,10 @@
     {{-- PRIZE --}}
     <div class="flex justify-between items-center w-[210px] py-5">
         <div class="block">
-            <img src="{{ url('/images/omega-boutique-badge_120x.webp') }}" alt="">
+            <img src="{{ url('/assets/images/omega-boutique-badge_120x.webp') }}" alt="">
         </div>
         <div class="block ">
-            <img src="{{ url('/images/grand-seiko-salon-badge_120x.avif') }}" alt="">
+            <img src="{{ url('/assets/images/grand-seiko-salon-badge_120x.avif') }}" alt="">
         </div>
     </div>
     {{-- Call us --}}

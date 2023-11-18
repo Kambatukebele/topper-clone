@@ -1,35 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-  {{-- HEAD --}}
-  <x-header.head />
-  {{-- HEAD --}}
-
-  <body>
-    <main class="font-poppins">
-      {{--| INFORMATION SECTION |--}}
-      <x-information_section.information_section />
-      {{--| END INFORMATION SECTION |--}}
-
-      {{--| HEADER |--}}
-      <x-header.header />
-      {{--| END HEADER |--}}
-
-
-      {{--|--NAVIGATION |--}}
-      <x-navigation.navigation />
-      {{--| END NAVIGATION |--}}
-
-      {{--| HIDDEN HEADER |---}}
-      <x-header.hidden_header />
-      {{--|END HIDDEN HEADER |--}}
-
-      {{--| HIDDEN NAVIGATION |--}}
-      <x-navigation.hidden_navigation />
-      {{--|END HIDDEN NAVIGATION |-}}
+<x-website-layout>
 
       {{--| CONTENT |--}}
       <section class="w-[90%] mx-auto my-10 flex justify-center items-center flex-col">
-        <img src="{{ url('/images/download (7).webp') }}" alt="">
+        <img src="{{ url('/assets/images/download (7).webp') }}" alt="">
         <h2 class="font-poppins text-3xl text-center font-normal mb-5">No Interest if Paid in Full within 12 months</h2>
         <p class="font-poppins text-center text-gray-600 font-light my-5">Interest will be charged to your account from
           the purchase date if the purchase balance is not paid in full
@@ -53,20 +26,8 @@
             as of 08/14/2020 and is subject to change. For current information, call us at 1-800-431-5921. Offer expires
             01/31/2021.</p>
         </div>
-        <a href="{{ url('https://retailservices.wellsfargo.com/ahapp/init-app?m=2171048820&l=en_US') }}"><img
-            src="{{ url('/images/download (8).webp') }}" alt=""></a>
+        <a href="{{ url('/assetshttps://retailservices.wellsfargo.com/ahapp/init-app?m=2171048820&l=en_US') }}"><img
+            src="{{ url('/assets/images/download (8).webp') }}" alt=""></a>
       </section>
       {{--| END CONTENT |--}}
-
-
-
-      {{--| FOOTER |--}}
-      <x-footer.footer />
-      {{--| END FOOTER |--}}
-    </main>
-    <x-js.my_scripts />
-  </body>
-
-</html>
-
-</html>
+    </x-website-layout>

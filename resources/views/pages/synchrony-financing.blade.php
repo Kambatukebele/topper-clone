@@ -1,35 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-  {{-- HEAD --}}
-  <x-header.head />
-  {{-- HEAD --}}
-
-  <body>
-    <main class="font-poppins">
-      {{--| INFORMATION SECTION |--}}
-      <x-information_section.information_section />
-      {{--| END INFORMATION SECTION |--}}
-
-      {{--| HEADER |--}}
-      <x-header.header />
-      {{--| END HEADER |--}}
-
-
-      {{--|--NAVIGATION |--}}
-      <x-navigation.navigation />
-      {{--| END NAVIGATION |--}}
-
-      {{--| HIDDEN HEADER |---}}
-      <x-header.hidden_header />
-      {{--|END HIDDEN HEADER |--}}
-
-      {{--| HIDDEN NAVIGATION |--}}
-      <x-navigation.hidden_navigation />
-      {{--|END HIDDEN NAVIGATION |-}}
-
+<x-website-layout>
       {{--| CONTENT |--}}
       <section class="w-[90%] mx-auto flex justify-center items-center flex-col my-10 lg:w-[900px]">
-        <img src="{{ url('/images/download (9).webp') }}" class="mb-5" alt="">
+        <img src="{{ url('/assets/images/download (9).webp') }}" class="mb-5" alt="">
         <p class="font-poppins text-center text-gray-600 font-normal my-5">NOTE: As of August 19, 2014, GE Capital
           Retail
           Finance (GECRF), the provider of Business Center, will now be
@@ -70,7 +42,7 @@
           applicable
           terms. Subject to credit approval.</p>
         <a class="font-poppins text-center uppercase font-semibold cursor-pointer bg-yellow-300 text-black block w-40 py-6 my-5"
-          href="{{ url('https://www.mysynchrony.com/mmc/LX77374100') }}">
+          href="{{ url('/assetshttps://www.mysynchrony.com/mmc/LX77374100') }}">
           Apply now
         </a>
         <div class="bg-gray-100 p-5 w-full flex justify-center items-center flex-col lg:w-[900px]">
@@ -98,16 +70,4 @@
         </div>
       </section>
       {{--| END CONTENT |--}}
-
-
-
-      {{--| FOOTER |--}}
-      <x-footer.footer />
-      {{--| END FOOTER |--}}
-    </main>
-    <x-js.my_scripts />
-  </body>
-
-</html>
-
-</html>
+    </x-website-layout>

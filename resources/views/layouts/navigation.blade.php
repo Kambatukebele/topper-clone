@@ -33,7 +33,6 @@
                             </x-slot>
                         </x-dropdown>
                     </div>
-
                 </div>
             </div>
 

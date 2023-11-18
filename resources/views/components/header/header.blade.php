@@ -2,7 +2,7 @@
     <div class="lg:w-[90%] lg:mx-auto lg:flex lg:justify-between lg:items-center">
         {{-- LOGO --}}
         <a href="{{ route('home') }}" class="block">
-            <img class="w-[170px]" src="{{ url('/images/topper-1940-logo.svg.svg') }}" alt="">
+            <img class="w-[170px]" src="{{ url('/assets/images/topper-1940-logo.svg.svg') }}" alt="">
         </a>
         {{--SEARCH --}}
         <div class="lg:block lg:border lg:p-2 lg:w-[380px]">
@@ -12,10 +12,10 @@
         {{-- PRIZE --}}
         <div class="lg:flex lg:justify-between lg:items-center lg:w-[210px]">
             <div class="lg:block">
-                <img src="{{ url('/images/omega-boutique-badge_120x.webp') }}" alt="">
+                <img src="{{ url('/assets/images/omega-boutique-badge_120x.webp') }}" alt="">
             </div>
             <div class="lg:block">
-                <img src="{{ url('/images/grand-seiko-salon-badge_120x.avif') }}" alt="">
+                <img src="{{ url('/assets/images/grand-seiko-salon-badge_120x.avif') }}" alt="">
             </div>
         </div>
         {{-- CART --}}
@@ -49,7 +49,7 @@
             <div class="hidden lg:flex lg:justify-between lg:items-center lg:mb-2">
                 <!--Image product-->
                 <div class="hidden lg:block lg:w-[50px] lg:h-[60px]">
-                    <img src="{{ url('/images/19bf481c3d90749d0d4dcb567bb9e26ffa7b0bd427e3a9f5c012d5956152a1ea.jpeg') }}"
+                    <img src="{{ url('/assets/images/19bf481c3d90749d0d4dcb567bb9e26ffa7b0bd427e3a9f5c012d5956152a1ea.jpeg') }}"
 alt="" class="hidden lg:block lg:w-full lg:h-full lg:object-cover lg:object-center">
 </div>
 <!--Description product -->

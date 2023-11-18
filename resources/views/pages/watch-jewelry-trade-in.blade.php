@@ -1,31 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-  {{-- HEAD --}}
-  <x-header.head />
-  {{-- HEAD --}}
-
-  <body>
-    <main class="font-poppins">
-      {{--| INFORMATION SECTION |--}}
-      <x-information_section.information_section />
-      {{--| END INFORMATION SECTION |--}}
-
-      {{--| HEADER |--}}
-      <x-header.header />
-      {{--| END HEADER |--}}
-
-
-      {{--|--NAVIGATION |--}}
-      <x-navigation.navigation />
-      {{--| END NAVIGATION |--}}
-
-      {{--| HIDDEN HEADER |---}}
-      <x-header.hidden_header />
-      {{--|END HIDDEN HEADER |--}}
-
-      {{--| HIDDEN NAVIGATION |--}}
-      <x-navigation.hidden_navigation />
-      {{--|END HIDDEN NAVIGATION |-}}
+<x-website-layout>
 
       {{--| CONTENT |--}}
       <section class="w-[90%] mx-auto pb-5 border-b my-10">
@@ -146,16 +119,4 @@
           calling us first!</p>
       </section>
       {{--| END CONTENT |--}}
-
-
-
-      {{--| FOOTER |--}}
-      <x-footer.footer />
-      {{--| END FOOTER |--}}
-    </main>
-    <x-js.my_scripts />
-  </body>
-
-</html>
-
-</html>
+    </x-website-layout>

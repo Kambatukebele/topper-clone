@@ -28,15 +28,10 @@ use App\Http\Controllers\Watch_jewelry_trade_inController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
+//Home Controller
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 // Prefix Collections Route Group
-
 Route::prefix('collections')->group(function(){
     //Watches Controller
     Route::get('/watches', [WatchesController::class, 'index'])->name('collections.watches');
@@ -83,9 +78,11 @@ Route::prefix('/')->group(function(){
         return view('dashboard');
     })->name('dashboard');
     //Products
-    Route::get('product', [ProductController::class, 'index'])->name('product.index');
-    Route::get('product/create', [ProductController::class, 'create'])->name('product.create');
-    Route::post('/product', [ProductController::class, 'store'])->name('product.store');
+    Route::controller(ProductController::class)->group(function(){
+        Route::get('product', 'index')->name('product.index');
+        Route::get('product/create', 'create')->name('product.create');
+        Route::post('/product', 'store')->name('product.store');
+    });
 })->middleware(['auth', 'verified']);
 
 Route::middleware('auth')->group(function () {

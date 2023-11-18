@@ -1,30 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-    {{-- HEAD --}}
-    <x-header.head />
-    {{-- HEAD --}}
-
-    <body>
-        <main class="font-poppins">
-            {{--| INFORMATION SECTION |--}}
-            <x-information_section.information_section />
-            {{--| END INFORMATION SECTION |--}}
-
-            {{--| HEADER |--}}
-            <x-header.header />
-            {{--| END HEADER |--}}
-
-            {{--|--NAVIGATION |--}}
-            <x-navigation.navigation />
-            {{--| END NAVIGATION |--}}
-
-            {{--| HIDDEN HEADER |---}}
-            <x-header.hidden_header />
-            {{--|END HIDDEN HEADER |--}}
-
-            {{--| HIDDEN NAVIGATION |--}}
-            <x-navigation.hidden_navigation />
-            {{--|END HIDDEN NAVIGATION |-}}
+<x-website-layout>
 
             {{--| CONTENT |--}}
             <section class="w-[90%] mx-auto flex justify-center items-center flex-col my-10">
@@ -37,7 +11,7 @@
                     <span class="font-bold text-black">A+ Rating with the Better Business Bureau</span>
                     to give you superior value.
                 </p>
-                <img src="{{ url('/images/download (4).webp') }}" class="mb-10" alt="" />
+                <img src="{{ url('/assets/images/download (4).webp') }}" class="mb-10" alt="" />
                 <h3 class="font-poppins text-black text-xl font-normal text-center mb-5">
                     Why Should You Choose Topper?
                 </h3>
@@ -319,12 +293,4 @@
                 </div>
             </section>
             {{--| END CONTENT |--}}
-
-            {{--| FOOTER |--}}
-            <x-footer.footer />
-            {{--| END FOOTER |--}}
-        </main>
-        <x-js.my_scripts />
-    </body>
-
-</html>
+        </x-website-layout>

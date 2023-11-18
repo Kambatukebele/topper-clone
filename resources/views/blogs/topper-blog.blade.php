@@ -1,32 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-  {{-- HEAD --}}
-  <x-header.head />
-  {{-- HEAD --}}
-
-  <body>
-    <main class="font-poppins">
-      {{--| INFORMATION SECTION |--}}
-      <x-information_section.information_section />
-      {{--| END INFORMATION SECTION |--}}
-
-      {{--| HEADER |--}}
-      <x-header.header />
-      {{--| END HEADER |--}}
-
-
-      {{--|--NAVIGATION |--}}
-      <x-navigation.navigation />
-      {{--| END NAVIGATION |--}}
-
-      {{--| HIDDEN HEADER |---}}
-      <x-header.hidden_header />
-      {{--|END HIDDEN HEADER |--}}
-
-      {{--| HIDDEN NAVIGATION |--}}
-      <x-navigation.hidden_navigation />
-      {{--|END HIDDEN NAVIGATION |-}}
-
+<x-website-layout>
       {{--| CONTENT |--}}
       <section class="w-[90%] mx-auto my-10 lg:flex lg:justify-between lg:items-start">
         <div class="lg:w-[900px] xl:w-[1000px]">
@@ -38,7 +10,7 @@
             <div class="w-[280px] mx-auto md:w-[320px] mb-5 xl:w-[450px]">
               <div class="mb-5 lg:w-[300px] xl:w-[450px]">
                 <img class="w-full h-full object-center object-cover"
-                  src="{{ url('/images/unnamed_1ff41eaf-8211-4759-90fc-f49fc98d15f3_720x480_crop_center.webp') }}"
+                  src="{{ url('/assets/images/unnamed_1ff41eaf-8211-4759-90fc-f49fc98d15f3_720x480_crop_center.webp') }}"
                   alt="">
               </div>
               <h4 class="font-semibold text-2xl mb-5"><a href="#">Introducing Topper's First Look Event for 2023</a>
@@ -56,7 +28,7 @@
             <div class="w-[280px] mx-auto md:w-[320px] mb-5 xl:w-[450px]">
               <div class="mb-5 lg:w-[300px] xl:w-[450px]">
                 <img class="w-full h-full object-center object-cover"
-                  src="{{ url('/images/unnamed_1ff41eaf-8211-4759-90fc-f49fc98d15f3_720x480_crop_center.webp') }}"
+                  src="{{ url('/assets/images/unnamed_1ff41eaf-8211-4759-90fc-f49fc98d15f3_720x480_crop_center.webp') }}"
                   alt="">
               </div>
               <h4 class="font-semibold text-2xl mb-5"><a href="#">Introducing Topper's First Look Event for 2023</a>
@@ -71,7 +43,7 @@
             <div class="w-[280px] mx-auto md:w-[320px] mb-5 xl:w-[450px]">
               <div class="mb-5 lg:w-[300px] xl:w-[450px]">
                 <img class="w-full h-full object-center object-cover"
-                  src="{{ url('/images/unnamed_1ff41eaf-8211-4759-90fc-f49fc98d15f3_720x480_crop_center.webp') }}"
+                  src="{{ url('/assets/images/unnamed_1ff41eaf-8211-4759-90fc-f49fc98d15f3_720x480_crop_center.webp') }}"
                   alt="">
               </div>
               <h4 class="font-semibold text-2xl mb-5">Introducing Topper's First Look Event for 2023</h4>
@@ -86,7 +58,7 @@
             <div class="w-[280px] mx-auto md:w-[320px] mb-5 xl:w-[450px]">
               <div class="mb-5 lg:w-[300px] xl:w-[450px]">
                 <img class="w-full h-full object-center object-cover"
-                  src="{{ url('/images/unnamed_1ff41eaf-8211-4759-90fc-f49fc98d15f3_720x480_crop_center.webp') }}"
+                  src="{{ url('/assets/images/unnamed_1ff41eaf-8211-4759-90fc-f49fc98d15f3_720x480_crop_center.webp') }}"
                   alt="">
               </div>
               <h4 class="font-semibold text-2xl mb-5"><a href="#">Introducing Topper's First Look Event for 2023</a>
@@ -101,7 +73,7 @@
             <div class="w-[280px] mx-auto md:w-[320px] mb-5 xl:w-[450px]">
               <div class="mb-5 lg:w-[300px] xl:w-[450px]">
                 <img class="w-full h-full object-center object-cover"
-                  src="{{ url('/images/unnamed_1ff41eaf-8211-4759-90fc-f49fc98d15f3_720x480_crop_center.webp') }}"
+                  src="{{ url('/assets/images/unnamed_1ff41eaf-8211-4759-90fc-f49fc98d15f3_720x480_crop_center.webp') }}"
                   alt="">
               </div>
               <h4 class="font-semibold text-2xl mb-5">Introducing Topper's First Look Event for 2023</h4>
@@ -116,7 +88,7 @@
             <div class="w-[280px] mx-auto md:w-[320px] mb-5 xl:w-[450px]">
               <div class="mb-5 lg:w-[300px] xl:w-[450px]">
                 <img class="w-full h-full object-center object-cover"
-                  src="{{ url('/images/unnamed_1ff41eaf-8211-4759-90fc-f49fc98d15f3_720x480_crop_center.webp') }}"
+                  src="{{ url('/assets/images/unnamed_1ff41eaf-8211-4759-90fc-f49fc98d15f3_720x480_crop_center.webp') }}"
                   alt="">
               </div>
               <h4 class="font-semibold text-2xl mb-5"><a href="#">Introducing Topper's First Look Event for 2023</a>
@@ -278,14 +250,4 @@
         </div>
       </section>
       {{--| END CONTENT |--}}
-
-
-
-      {{--| FOOTER |--}}
-      <x-footer.footer />
-      {{--| END FOOTER |--}}
-    </main>
-    <x-js.my_scripts />
-  </body>
-
-</html>
+    </x-website-layout>

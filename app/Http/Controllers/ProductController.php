@@ -3,9 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
-use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 use Illuminate\View\View;
+use App\Models\ProductBrand;
+use App\Models\ProductCollection;
+use App\Models\ProductGender;
+use App\Models\ProductType;
+use Illuminate\Http\Request;
+use Illuminate\Http\RedirectResponse;
 
 class ProductController extends Controller
 {
@@ -22,7 +26,16 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('admin.products.create'); 
+        $genders = ProductGender::all();
+        $brands = ProductBrand::all();
+        $types = ProductType::all();
+        $collections = ProductCollection::all();
+        return view('admin.products.create', [
+            'brands' => $brands,
+            'genders' => $genders,
+            'types' => $types,
+            'collections' => $collections,
+        ]); 
     }
 
     /**
@@ -43,7 +56,7 @@ class ProductController extends Controller
             "compare_at_price"  => "required|string",
             "stock"  => "required|string",
             "sku"  => "required|string",
-            "status"  => "required|string",
+            "status"  => "required|string"
         ]);
 
         //Moving images to the public folder
@@ -89,14 +102,7 @@ class ProductController extends Controller
         $product->product_stock = $request->stock; 
         $product->SKU = $request->sku;
         $product->product_status = $request->status;
-        $product->product_gender = $request->product_gender;
-        $product->product_type = $request->product_type;
-        $product->product_collection = $request->collections;
-        $product->product_tags = $request->tags;
-        $product->product_brand = $request->brand;
-        $product->product_case = $request->case;
-        $product->product_mouvement = $request->movement;
-        $product->product_material = $request->material;        
+            
 
         // $product->save();
         // session()->flash('success', "The product has been created successfully!"); 

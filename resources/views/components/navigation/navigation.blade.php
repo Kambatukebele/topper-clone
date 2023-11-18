@@ -129,7 +129,7 @@
         <div class="hidden xl:flex xl:justify-between xl:items-center xl:w-[850px]">
             <a href="#" class="hidden xl:block xl:w-[260px] xl:h-[420px]">
                 <div class="xl:w-[260px] xl:h-[325px]">
-                    <img src="{{ url('/images/19bf481c3d90749d0d4dcb567bb9e26ffa7b0bd427e3a9f5c012d5956152a1ea.jpeg') }}"
+                    <img src="{{ url('/assets/images/19bf481c3d90749d0d4dcb567bb9e26ffa7b0bd427e3a9f5c012d5956152a1ea.jpeg') }}"
                         alt="" class="xl:w-full xl:h-full xl:object-cover xl:object-center">
                 </div>
                 <div class="text-center font-bold font-poppins text-base w-full mt-2">
@@ -138,7 +138,7 @@
             </a>
             <a href="#" class="hidden xl:block xl:w-[260px] xl:h-[420px]">
                 <div class="xl:w-[260px] xl:h-[325px]">
-                    <img src="{{ url('/images/1776af86c6c89504f566907daf96d2da0328627a0de9fdde33a227dfdec6f30e.jpeg') }}"
+                    <img src="{{ url('/assets/images/1776af86c6c89504f566907daf96d2da0328627a0de9fdde33a227dfdec6f30e.jpeg') }}"
                         alt="" class="xl:w-full xl:h-full xl:object-cover xl:object-center">
                 </div>
                 <div class="text-center font-bold font-poppins text-base w-full mt-2">
@@ -147,7 +147,7 @@
             </a>
             <a href="#" class="hidden xl:block xl:w-[260px] xl:h-[420px]">
                 <div class="xl:w-[260px] xl:h-[325px]">
-                    <img src="{{ url('/images/497179c4d13bd89dd05bd7f23f42a7e882ad1b2111c10659fd73354ab4aa97da.jpeg') }}"
+                    <img src="{{ url('/assets/images/497179c4d13bd89dd05bd7f23f42a7e882ad1b2111c10659fd73354ab4aa97da.jpeg') }}"
                         alt="" class="xl:w-full xl:h-full xl:object-cover xl:object-center">
                 </div>
                 <div class="text-center font-bold font-poppins text-base w-full mt-2">

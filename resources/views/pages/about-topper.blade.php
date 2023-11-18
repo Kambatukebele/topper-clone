@@ -1,37 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-  {{-- HEAD --}}
-  <x-header.head />
-  {{-- HEAD --}}
-
-  <body>
-    <main class="font-poppins">
-      {{--| INFORMATION SECTION |--}}
-      <x-information_section.information_section />
-      {{--| END INFORMATION SECTION |--}}
-
-      {{--| HEADER |--}}
-      <x-header.header />
-      {{--| END HEADER |--}}
-
-
-      {{--|--NAVIGATION |--}}
-      <x-navigation.navigation />
-      {{--| END NAVIGATION |--}}
-
-      {{--| HIDDEN HEADER |---}}
-      <x-header.hidden_header />
-      {{--|END HIDDEN HEADER |--}}
-
-      {{--| HIDDEN NAVIGATION |--}}
-      <x-navigation.hidden_navigation />
-      {{--|END HIDDEN NAVIGATION |-}}
-
+<x-website-layout>
       {{--| CONTENT |--}}
       {{-- Title --}}
       <h2 class="font-poppins text-center font-bold text-3xl my-10">About Topper Fine Jewelers</h2>
       <section class="w-[90%] mx-auto xl:w-[900px] my-10">
-        <img src="{{ url('/images/download.webp') }}" class="w-full h-full object-center object-cover" alt="">
+        <img src="{{ url('/assets/images/download.webp') }}" class="w-full h-full object-center object-cover" alt="">
       </section>
       {{-- some text --}}
       <section class="w-[90%] mx-auto my-10">
@@ -67,7 +39,7 @@
       </section>
       {{-- Images --}}
       <section class="w-[90%] mx-auto xl:w-[900px] my-10">
-        <img src="{{ url('/images/download (1).webp') }}" class="w-full h-full object-center object-cover" alt="">
+        <img src="{{ url('/assets/images/download (1).webp') }}" class="w-full h-full object-center object-cover" alt="">
       </section>
       {{-- Bill Caplan --}}
       <section
@@ -81,18 +53,8 @@
             Bill</a>
         </div>
         <div>
-          <img src="{{ url('/images/download (2).webp') }}" alt="">
+          <img src="{{ url('/assets/images/download (2).webp') }}" alt="">
         </div>
       </section>
       {{--| END CONTENT |--}}
-
-
-
-      {{--| FOOTER |--}}
-      <x-footer.footer />
-      {{--| END FOOTER |--}}
-    </main>
-    <x-js.my_scripts />
-  </body>
-
-</html>
+    </x-website-layout>

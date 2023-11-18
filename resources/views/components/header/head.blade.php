@@ -17,5 +17,5 @@
     {{-- TAILWIND CSS --}}
     @vite('resources/css/app.css')
     {{-- END TAILWIND CSS --}}
-    <title>Home</title>
+    <title>@yield('title')</title>
 </head>

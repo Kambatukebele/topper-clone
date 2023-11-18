@@ -4,7 +4,6 @@
             {{ __("Add Product") }}
         </h2>
     </x-slot>
-
     <form enctype="multipart/form-data" method="POST" action="{{ route('product.store') }}"
         enctype="multipart/form-data" class="w-full lg:w-[900px] lg:mx-auto lg:flex lg:justify-between lg:items-start">
         @csrf
@@ -113,12 +112,12 @@
                 <div class="border border-dashed p-5 my-3">
                     <div class="block lg:mx-20">
                         <label for="main_photo" class="text-xs">
-                            <input type="file" name="logo_brand" value="">
-                            <small class="text-xs text-gray-500">Logo Brand : PNG,JPG, JPEG, WEBP</small>
+                            <input type="file" name="photo_four" value="">
+                            <small class="text-xs text-gray-500">Photo Four : PNG,JPG, JPEG, WEBP</small>
                         </label>
                     </div>
                 </div>
-                @error('logo_brand')
+                @error('photo_four')
                 <div class="text-sm my-1  text-red-900 pl-3">
                     {{ $message }}
                 </div>
@@ -160,16 +159,16 @@
             </div>
             <!-- Product Inventory -->
             <div class="w-full my-5 bg-white shadow-md p-3 border border-gray-300 rounded-lg">
-                <div class="font-semibold text-sm text-black my-3">Inventory</div>
+                <div class="font-semibold text-sm text-black my-3">Stock</div>
                 <div>
                     <div class="block w-full">
                         <div class="block">
                             <label for="price" class="font-light text-sm text-gray-500">In Stock</label>
                         </div>
                         <div class="block">
-                            <input type="text" name="inventory" placeholder="1100" class="rounded-lg w-full text-sm" />
+                            <input type="text" name="stock" placeholder="1100" class="rounded-lg w-full text-sm" />
                         </div>
-                        @error('inventory')
+                        @error('stock')
                         <div class="text-sm my-1  text-red-900 pl-3">
                             {{ $message }}
                         </div>
@@ -203,6 +202,7 @@
                 <div class="block w-full mt-2">
                     <select name="status" id="" class="rounded-lg w-full text-sm">
                         <option value="draft">Draft</option>
+                        <option value="comming-soon">Comming soon</option>
                         <option value="Active">Active</option>
                     </select>
                 </div>
@@ -215,8 +215,9 @@
                     </div>
                     <div>
                         <select name="product_gender" id="" class="rounded-lg w-full text-sm">
-                            <option value="man">Man</option>
-                            <option value="woman">Woman</option>
+                            @foreach ($genders as $gender)
+                            <option value="{{ $gender->gender_name }}">{{ Str::ucfirst($gender->gender_name) }}</option>
+                            @endforeach
                         </select>
                     </div>
                 </div>
@@ -225,7 +226,11 @@
                         <label for="product_type" class="font-light text-sm text-gray-500">Product Type</label>
                     </div>
                     <div>
-                        <input type="text" name="product_type" placeholder="active" class="rounded-lg w-full text-sm" />
+                        <select name="product_type" id="" class="rounded-lg w-full text-sm">
+                            @foreach ($types as $type)
+                            <option value="{{ $type->type_name }}">{{ Str::ucfirst($type->type_name) }}</option>
+                            @endforeach
+                        </select>
                     </div>
                     @error('product_type')
                     <div class="text-sm my-1  text-red-900 pl-3">
@@ -239,9 +244,9 @@
                     </div>
                     <div>
                         <select name="collections" class="rounded-lg w-full text-sm">
-                            <option value="watches">Watches</option>
-                            <option value="pre-owned">Pre-Owned</option>
-                            <option value="jewelry">Jewelry</option>
+                            @foreach ($collections as $collection)
+                            <option value="{{ $collection->collection_name }}">{{ Str::ucfirst($collection->collection_name) }}</option>
+                            @endforeach
                         </select>
                     </div>
                 </div>

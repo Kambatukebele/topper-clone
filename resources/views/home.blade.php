@@ -1,53 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-  {{-- HEAD --}}
-  <x-header.head />
-  {{-- HEAD --}}
-
-  <body>
-    <main class="font-poppins">
-      {{--| INFORMATION SECTION |--}}
-      <x-information_section.information_section />
-      {{--| END INFORMATION SECTION |--}}
-
-      {{--| HEADER |--}}
-      <x-header.header />
-      {{--| END HEADER |--}}
-
-
-      {{--|--NAVIGATION |--}}
-      <x-navigation.navigation />
-      {{--| END NAVIGATION |--}}
-
-      {{--| HIDDEN HEADER |---}}
-      <x-header.hidden_header />
-      {{--|END HIDDEN HEADER |--}}
-
-      {{--| HIDDEN NAVIGATION |--}}
-      <x-navigation.hidden_navigation />
-      {{--|END HIDDEN NAVIGATION |-}}
-
-      {{--| CONTENT |--}}
+<x-website-layout>
       {{-- SlideShow Container --}}
       <section class="slideshow-container w-full my-10 pb-10 border-b-[1px]">
         {{-- Full width images with number and caption text --}}
         <a href="#">
           <div class="mySlides fade w-[90%] h-fit mx-auto">
-            <img src="{{ url('images/omega-seamaster-75th-anniv_1400x.webp') }}" alt=""
+            <img src="{{ url('assets/images/omega-seamaster-75th-anniv_1400x.webp') }}" alt=""
               class="w-full h-full object-cover object-center">
           </div>
         </a>
         {{-- <div class="mySlides fade w-[90%] mx-auto">
-          <img src="{{ url('images/preowned-select_53d3425b-de39-4256-8d08-68aaf21404e2_1400x.webp') }}" alt="">
+          <img src="{{ url('assets/images/preowned-select_53d3425b-de39-4256-8d08-68aaf21404e2_1400x.webp') }}" alt="">
         </div>
         <div class="mySlides fade w-[90%] mx-auto">
-          <img src="{{ url('images/grand-seiko-tentagraph_54e9fa86-2770-4007-8dc2-3025bea8f3cf_1400x.webp') }}" alt="">
+          <img src="{{ url('assets/images/grand-seiko-tentagraph_54e9fa86-2770-4007-8dc2-3025bea8f3cf_1400x.webp') }}" alt="">
         </div>
         <div class="mySlides fade w-[90%] mx-auto">
-          <img src="{{ url('images/breitling-top-time_1400x.webp') }}" alt="">
+          <img src="{{ url('assets/images/breitling-top-time_1400x.webp') }}" alt="">
         </div>
         <div class="mySlides fade w-[90%] mx-auto">
-          <img src="{{ url('images/blancpain-ecom_1400x.webp') }}" alt="">
+          <img src="{{ url('assets/images/blancpain-ecom_1400x.webp') }}" alt="">
         </div> --}}
 
 
@@ -77,7 +48,7 @@
               {{-- watche image --}}
               <div
                 class="w-[140px] h-[210px] flex justify-center items-center md:w-[250px] md:h-[300px] lg:w-[160px] xl:w-[200px]">
-                <img src="{{ url('/images/AB01764A1C1X1_360x.webp') }}" class="w-full h-full object-cover object-center"
+                <img src="{{ url('assets/images/AB01764A1C1X1_360x.webp') }}" class="w-full h-full object-cover object-center"
                   alt="">
               </div>
               {{-- watch description --}}
@@ -99,7 +70,7 @@
               {{-- watche image --}}
               <div
                 class="w-[140px] h-[210px] flex justify-center items-center md:w-[250px] md:h-[300px] lg:w-[160px] xl:w-[200px]">
-                <img src="{{ url('/images/g-shock-mtg-aurora-borealis-topper_360x.webp') }}" alt=""
+                <img src="{{ url('assets/images/g-shock-mtg-aurora-borealis-topper_360x.webp') }}" alt=""
                   class="w-full h-full object-cover object-center">
               </div>
               {{-- watch description --}}
@@ -121,7 +92,7 @@
               {{-- watche image --}}
               <div
                 class="w-[140px] h-[210px] flex justify-center items-center md:w-[250px] md:h-[300px] lg:w-[160px] xl:w-[200px]">
-                <img src="{{ url('/images/omega-seamaster-ploprof-75th-topper_360x.webp') }}" alt=""
+                <img src="{{ url('assets/images/omega-seamaster-ploprof-75th-topper_360x.webp') }}" alt=""
                   class="w-full h-full object-cover object-center">
               </div>
               {{-- watch description --}}
@@ -143,7 +114,7 @@
               {{-- watche image --}}
               <div
                 class="w-[140px] h-[210px] flex justify-center items-center md:w-[250px] md:h-[300px] lg:w-[160px] xl:w-[200px]">
-                <img src="{{ url('/images/seiko-5-55th-anniversary-SRPK17-topper_360x.webp') }}" alt=""
+                <img src="{{ url('assets/images/seiko-5-55th-anniversary-SRPK17-topper_360x.webp') }}" alt=""
                   class="w-full h-full object-cover object-center">
               </div>
               {{-- watch description --}}
@@ -165,7 +136,7 @@
               {{-- watche image --}}
               <div
                 class="w-[140px] h-[210px] flex justify-center items-center md:w-[250px] md:h-[300px] lg:w-[160px] xl:w-[200px]">
-                <img src="{{ url('/images/singer-1969-chronograph-topper_360x.webp') }}" alt=""
+                <img src="{{ url('assets/images/singer-1969-chronograph-topper_360x.webp') }}" alt=""
                   class="w-full h-full object-cover object-center">
               </div>
               {{-- watch description --}}
@@ -187,7 +158,7 @@
               {{-- watche image --}}
               <div
                 class="w-[160px] h-[210px] flex justify-center items-center md:w-[250px] md:h-[300px] lg:w-[140px] xl:w-[200px]">
-                <img src="{{ url('/images/ZO9592_main_360x.webp') }}" alt=""
+                <img src="{{ url('assets/images/ZO9592_main_360x.webp') }}" alt=""
                   class="w-full h-full object-cover object-center">
               </div>
               {{-- watch description --}}
@@ -215,7 +186,7 @@
       {{-- NEWEST WATCHES SECTION --}}
       <section class="w-full flex justify-center items-center my-10 border-b-[1px] pb-10">
         <div
-          class="w-[90%] mx-auto bg-[url('/public/images/newest-watches-bg_449df3c6-aec2-464c-8861-1d5a3962d439.jpg')] bg-no-repeat bg-cover bg-center h-28 flex justify-center items-center flex-col md:h-72">
+          class="w-[90%] mx-auto bg-[url('/public/assets/images/newest-watches-bg_449df3c6-aec2-464c-8861-1d5a3962d439.jpg')] bg-no-repeat bg-cover bg-center h-28 flex justify-center items-center flex-col md:h-72">
           <h4 class="text-white text-3xl font-semibold uppercase md:text-7xl">Newest</h4>
           <hr class="w-[100px] md:w-[400px] text-white">
           <h3 class="text-white text-3xl font-bold uppercase md:text-7xl">Watches</h3>
@@ -237,11 +208,11 @@
       {{-- Images --}}
       {{-- On medium, large, big screen --}}
       <section class="hidden md:flex md:justify-center md:items-center md:w-[90%] md:mx-auto mb-10">
-        <img src="{{ url('/images/bespoke-jewelry.png') }}" alt="">
+        <img src="{{ url('assets/images/bespoke-jewelry.png') }}" alt="">
       </section>
       {{-- On small device  from 320px --}}
       <section class="flex justify-center items-center w-[90%] mx-auto mb-10 md:hidden">
-        <img src="{{ url('/images/bespoke-jewelry-sml.png') }}" alt="">
+        <img src="{{ url('assets/images/bespoke-jewelry-sml.png') }}" alt="">
       </section>
       {{-- Butoon Get Started --}}
       <a href="{{ route('collections.newest-watches') }}"
@@ -254,15 +225,15 @@
       <section class="w-full">
         <div class="w-[90%] mx-auto flex justify-between items-center flex-col  sm:flex-row sm:flex-wrap">
           <a href="#" class="block w-[280px] mx-auto mb-10 sm:w-[49%] sm:mx-0">
-            <img src="{{ url('/images/homepage-topper-limited_4f2780ae-376b-4649-bd68-5edd07b36c26_720x.webp') }}"
+            <img src="{{ url('assets/images/homepage-topper-limited_4f2780ae-376b-4649-bd68-5edd07b36c26_720x.webp') }}"
               alt="" class="w-full h-full object-cover object-center">
           </a>
           <a href="#" class="block w-[280px] mx-auto mb-10 sm:w-[49%] sm:mx-0">
-            <img src="{{ url('/images/homepage-pre-owned-select_7701b15b-3449-4fc7-b244-4b42bd95ebca_720x.webp') }}"
+            <img src="{{ url('assets/images/homepage-pre-owned-select_7701b15b-3449-4fc7-b244-4b42bd95ebca_720x.webp') }}"
               alt="" class="w-full h-full object-cover object-center">
           </a>
           <div
-            class="bg-[url('/public/images/newsletter-bg_7e62ea89-5d7d-4d1d-9782-3ab3850df472.webp')] bg-no-repeat bg-cover bg-center flex flex-col justify-center items-center w-[280px] mx-auto mb-10 h-[400px] sm:w-full">
+            class="bg-[url('/public/assets/images/newsletter-bg_7e62ea89-5d7d-4d1d-9782-3ab3850df472.webp')] bg-no-repeat bg-cover bg-center flex flex-col justify-center items-center w-[280px] mx-auto mb-10 h-[400px] sm:w-full">
             <h4 class="text-white text-3xl text-center font-poppins font-bold">
               <a href="#">Get the Topper Weekly</a>
             </h4>
@@ -288,7 +259,7 @@
       <section class="w-full block my-10">
         <div class="w-[90%] mx-auto lg:w-[950px] lg:flex lg:justify-center lg:items-center ">
           <div class="w-[280px] mx-auto sm:w-[420px] lg:w-[450px]">
-            <img src="{{ url('/images/gift-card_540x.webp') }}" class="w-full h-full object-cover object-center" alt="">
+            <img src="{{ url('assets/images/gift-card_540x.webp') }}" class="w-full h-full object-cover object-center" alt="">
           </div>
           <div class="w-[280px] mx-auto sm:w-[420px] lg:w-[450px]">
             <h3 class="text-4xl font-bold text-left my-5">Gift Card</h3>
@@ -316,7 +287,7 @@
         <div class="w-[90%] mx-auto flex flex-col justify-center items-center lg:flex-row">
           <div class="w-full my-4 flex flex-col justify-center items-center">
             <div class="w-[285px] lg:w-[300px] xl:w-[350px]">
-              <img src="{{ url('/images/unnamed_1ff41eaf-8211-4759-90fc-f49fc98d15f3_360x.avif') }}"
+              <img src="{{ url('assets/images/unnamed_1ff41eaf-8211-4759-90fc-f49fc98d15f3_360x.avif') }}"
                 class="w-full h-full object-cover object-center" alt="">
             </div>
             <div class="w-[260px] mx-auto py-3 lg:w-[300px] xl:w-[350px]">
@@ -341,7 +312,7 @@
 
           <div class="w-full my-4 flex flex-col justify-center items-center">
             <div class="w-[285px] lg:w-[300px] xl:w-[350px]">
-              <img src="{{ url('/images/unnamed_1ff41eaf-8211-4759-90fc-f49fc98d15f3_360x.avif') }}"
+              <img src="{{ url('assets/images/unnamed_1ff41eaf-8211-4759-90fc-f49fc98d15f3_360x.avif') }}"
                 class="w-full h-full object-cover object-center" alt="">
             </div>
             <div class="w-[260px] mx-auto py-3 lg:w-[300px] xl:w-[350px]">
@@ -366,7 +337,7 @@
 
           <div class="w-full my-4 flex flex-col justify-center items-center">
             <div class="w-[285px] lg:w-[300px] xl:w-[350px]">
-              <img src="{{ url('/images/unnamed_1ff41eaf-8211-4759-90fc-f49fc98d15f3_360x.avif') }}"
+              <img src="{{ url('assets/images/unnamed_1ff41eaf-8211-4759-90fc-f49fc98d15f3_360x.avif') }}"
                 class="w-full h-full object-cover object-center" alt="">
             </div>
             <div class="w-[260px] mx-auto py-3 lg:w-[300px] xl:w-[350px]">
@@ -400,21 +371,9 @@
       </section>
       <section class="w-full bg-white mb-5">
         <div class="w-[90%] mx-auto">
-          <img src="{{ url('/images/watch-brands.jpg') }}" class="w-full h-full object-center object-cover" alt="">
+          <img src="{{ url('assets/images/watch-brands.jpg') }}" class="w-full h-full object-center object-cover" alt="">
         </div>
       </section>
 
       {{-- End We are an Authorized Dealer of --}}
-
-      {{--| END CONTENT |--}}
-
-
-
-      {{--| FOOTER |--}}
-      <x-footer.footer />
-      {{--| END FOOTER |--}}
-    </main>
-    <x-js.my_scripts />
-  </body>
-
-</html>
+</x-website-layout>
