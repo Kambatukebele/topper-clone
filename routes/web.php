@@ -1,23 +1,22 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\About_TopperController;
-use App\Http\Controllers\Bill_caplanController;
-use App\Http\Controllers\Contact_UsController;
-use App\Http\Controllers\FinancingController;
-use App\Http\Controllers\Gold_platinum_buyingController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\JewelryController;
-use App\Http\Controllers\Newest_WatchesController;
-use App\Http\Controllers\Pre_OwnedController;
 use App\Http\Controllers\ProductController;
-use App\Http\Controllers\ProductsController;
-use App\Http\Controllers\Synchrony_financingController;
-use App\Http\Controllers\Topper_BlogController;
-use App\Http\Controllers\Watch_jewelry_trade_inController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\WatchesController;
+use App\Http\Controllers\FinancingController;
+use App\Http\Controllers\Pre_OwnedController;
+use App\Http\Controllers\Contact_UsController;
+use App\Http\Controllers\Bill_caplanController;
+use App\Http\Controllers\Topper_BlogController;
+use App\Http\Controllers\About_TopperController;
+use App\Http\Controllers\Newest_WatchesController;
+use App\Http\Controllers\Synchrony_financingController;
+use App\Http\Controllers\Gold_platinum_buyingController;
 use App\Http\Controllers\Wells_fargo_financingController;
+use App\Http\Controllers\Watch_jewelry_trade_inController;
 
 /*
 |--------------------------------------------------------------------------
@@ -87,7 +86,7 @@ Route::prefix('/')->group(function(){
     Route::get('product', [ProductController::class, 'index'])->name('product.index');
     Route::get('product/create', [ProductController::class, 'create'])->name('product.create');
     Route::post('/product', [ProductController::class, 'store'])->name('product.store');
-})->middleware(['auth', 'verified', 'admin']);
+})->middleware(['auth', 'verified']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

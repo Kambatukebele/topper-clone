@@ -28,7 +28,7 @@ class ProductController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request): RedirectResponse
+    public function store(Request $request)
     {
         //Validate Product inputs
         $validated = $request->validate([
@@ -98,9 +98,9 @@ class ProductController extends Controller
         $product->product_mouvement = $request->movement;
         $product->product_material = $request->material;        
 
-        $product->save();
-        session()->flash('success', "The product has been created successfully!"); 
-        return redirect('product.index'); 
+        // $product->save();
+        // session()->flash('success', "The product has been created successfully!"); 
+        // return redirect('product.index'); 
     }
 
     /**
