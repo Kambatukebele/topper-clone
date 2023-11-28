@@ -21,7 +21,8 @@ class ProductController extends Controller
      */
     public function index(): View
     {
-        return view('admin.products.index');
+        $products = Product::latest()->get();
+        return view('admin.products.index', ['products' => $products]);
     }
 
     /**
@@ -151,9 +152,9 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Product $product)
+    public function show(Product $product, $id)
     {
-        //
+       
     }
 
     /**

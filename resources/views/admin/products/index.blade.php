@@ -39,45 +39,53 @@
                 </div>
             </div>
         </div>
+        
         <!-- Table -->
         <table class="w-full">
-            <tr class="bg-gray-100 border border-b-gray-200">
-                <th class="text-sm font-normal py-1 border">Title</th>
-                <th class="text-sm font-normal py-1 border w-[130px]">Photo</th>
-                <th class="text-sm font-normal py-1 border">Price</th>
-                <th class="text-sm font-normal py-1 border">Compare at</th>
-                <th class="text-sm font-normal py-1 border">Status</th>
-                <th class="text-sm font-normal py-1 border">Product Type</th>
-                <th class="text-sm font-normal py-1 border w-[130px]">Product Gender</th>
-                <th class="text-sm font-normal py-1 border">SKU</th>
-                <th class="text-sm font-normal py-1 border w-[230px]">Actions</th>
+            <tr class="bg-gray-100 border border-b-gray-200 w-[1200px]">
+                <th class="text-sm font-normal py-1 border w-[150px]">Title</th>
+                <th class="text-sm font-normal py-1 border w-[150px]">Photo</th>
+                <th class="text-sm font-normal py-1 border w-[150px]">Price</th>
+                <th class="text-sm font-normal py-1 border w-[150px]">Compare at</th>
+                <th class="text-sm font-normal py-1 border w-[150px]">Status</th>
+                <th class="text-sm font-normal py-1 border w-[150px]">Product Type</th>
+                <th class="text-sm font-normal py-1 border w-[150px]">Product Gender</th>
+                {{-- <th class="text-sm font-normal py-1 border w-[150px]">SKU</th> --}}
+                <th class="text-sm font-normal py-1 border w-[150px]">Actions</th>
             </tr>
-            <tr class="w-full">
-                <td class="text-sm font-normal py-3 border text-center">Watch1</td>
-                <td class="text-sm font-normal py-3 border text-center w-[130px] flex justify-center items-center">
-                    <img class="w-[30px]"
-                        src="{{ url('/images/1776af86c6c89504f566907daf96d2da0328627a0de9fdde33a227dfdec6f30e.jpeg') }}"
+            @foreach ($products as $product)            
+            <tr class="w-full border">
+                <td class="text-sm font-normal text-center h-[80px] w-[150px] lg:px-4">{{ Str::limit($product->title, 15, '...') }}</td>
+                <td class="text-sm font-normal text-center w-[130px] h-[80px] flex justify-center items-center">
+                    <div class="w-[50px] h-[50px] ">
+                        <img class="w-full h-full object-cover object-center"
+                        src="{{ url('assets/products/images') }}/{{ $product->main_photo }}"
                         alt="" />
+                    </div>
                 </td>
-                <td class="text-sm font-normal py-3 border text-center">100Usd</td>
-                <td class="text-sm font-normal py-3 border text-center">300usd</td>
-                <td class="text-sm font-normal py-3 border text-center">Draft</td>
-                <td class="text-sm font-normal py-3 border text-center">Watch</td>
-                <td class="text-sm font-normal py-3 border text-center">men-watch</td>
-                <td class="text-sm font-normal py-3 border text-center">320-333-222-11</td>
-                <td class="text-sm font-normal py-3 border text-center w-[230px]">
-                    <a href="#">
+                <td class="text-sm font-normal  text-center h-[80px]">{{ $product->price }}</td>
+                <td class="text-sm font-normal  text-center h-[80px]">{{ $product->compare_at_price }}</td>
+                <td class="text-sm font-normal  text-center h-[80px]">{{ $product->status }}</td>
+                <td class="text-sm font-normal  text-center h-[80px]">{{ $product->product_types_id }}</td>
+                <td class="text-sm font-normal  text-center h-[80px]">{{ $product->product_genders_id }}</td>
+                {{-- <td class="text-sm font-normal  text-center h-[80px]">320-333-222-11</td> --}}
+                <td class="text-sm font-normal text-center h-[80px] w-[230px] flex justify-center items-center">
+                    <a class="mr-2 h-0" href="{{ route("product.edit", $product->id) }}">
                         <button class="bg-green-700 w-16 py-1 rounded-md text-white font-semibold uppercase">
                             Edit
                         </button>
                     </a>
-                    <a href="#">
-                        <button
-                            class="bg-red-700 w-16 py-1 rounded-md text-white font-semibold uppercase">Delete</button>
-                    </a>
+                    <form class="h-0" action="{{ route('product.destroy', $product->id) }}" method="POST">
+                        @csrf
+                        @method("DELETE")
+                        <button type="submit"
+                                class="bg-red-700 w-16 py-1 rounded-md text-white font-semibold uppercase">
+                                Delete
+                        </button>
+                    </form>
                 </td>
             </tr>
-
+            @endforeach
         </table>
     </div>
 </x-app-layout>
