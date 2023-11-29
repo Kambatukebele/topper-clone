@@ -4,6 +4,7 @@
             {{ __("Edit Product") }}
         </h2>
     </x-slot>
+    {{ $product }}
     <form enctype="multipart/form-data" method="POST" action="{{ route('product.store') }}"
         enctype="multipart/form-data" class="w-full lg:w-[900px] lg:mx-auto lg:flex lg:justify-between lg:items-start">
         @csrf
@@ -17,7 +18,7 @@
                         <label for="title" class="font-light text-sm text-gray-500">Title</label>
                     </div>
                     <div class="block">
-                        <input type="text" name="title" value="{{ old('title') }}" placeholder="Short sleeve t-shirt"
+                        <input type="text" name="title" value="{{ old('title', $product[0]->title) }}" placeholder="Short sleeve t-shirt"
                             class="rounded-lg w-full text-sm" />
                     </div>
                     @error('title')
@@ -33,7 +34,7 @@
                     </div>
                     <div class="block">
                         <textarea name="description" cols="30" rows="5" class="w-full rounded-lg text-sm">
-                        {{ old('description') }}
+                        {{ old('description', $product[0]->description) }}
                         </textarea>
                     </div>
                     @error('description')
@@ -100,7 +101,6 @@
                             <input type="file" name="photo_three" value="">
                             <small class="text-xs text-gray-500">Image three : PNG,JPG, JPEG, WEBP</small>
                         </label>
-
                     </div>
                 </div>
                 @error('photo_three')
@@ -132,7 +132,7 @@
                             <label for="price" class="font-light text-sm text-gray-500">Price</label>
                         </div>
                         <div class="block">
-                            <input type="text" name="price" placeholder="$100" class="rounded-lg w-full text-sm" />
+                            <input type="text" value="{{ old('price', $product[0]->price) }}" name="price" placeholder="$100" class="rounded-lg w-full text-sm" />
                         </div>
                         @error('price')
                         <div class="text-sm my-1  text-red-900 pl-3">
@@ -147,7 +147,7 @@
                         </div>
                         <div class="block">
                             <input type="text" name="compare_at" placeholder="$100"
-                                class="rounded-lg w-full text-sm" />
+                                class="rounded-lg w-full text-sm" value="{{ old('compare_at', $product[0]->compare_at) }}" />
                         </div>
                         @error('compare_at_price')
                         <div class="text-sm my-1  text-red-900 pl-3">
@@ -166,7 +166,7 @@
                             <label for="price" class="font-light text-sm text-gray-500">In Stock</label>
                         </div>
                         <div class="block">
-                            <input type="text" name="stock" placeholder="1100" class="rounded-lg w-full text-sm" />
+                            <input type="text" value="{{ old('stock', $product[0]->stock) }}" name="stock" placeholder="1100" class="rounded-lg w-full text-sm" />
                         </div>
                         @error('stock')
                         <div class="text-sm my-1  text-red-900 pl-3">

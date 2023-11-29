@@ -175,7 +175,7 @@ class ProductController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Product $product)
+    public function edit(Product $product, $id)
     {
         $genders = ProductGender::all();
         $brands = ProductBrand::all();
@@ -184,13 +184,14 @@ class ProductController extends Controller
         $cases = ProductCase::all();
         $mouvements = ProductMouvement::all();
         $materials = ProductMaterial::all();
-        $products = DB::table('products')
+        $product = DB::table('products')
         ->leftJoin('product_brands', 'products.id', '=', 'product_brands.id')
         ->leftJoin('product_prices', 'products.id', '=', 'product_prices.id')
         ->leftJoin('product_images', 'products.id', '=', 'product_images.id')
         ->leftJoin('product_genders', 'products.id', '=', 'product_genders.id')
         ->leftJoin('product_types', 'products.id', '=', 'product_types.id')
         ->select('products.*', 'product_brands.brand_name', 'product_prices.price',  'product_prices.compare_at', 'product_images.main_photo', 'product_genders.gender_name', 'product_types.type_name')
+        ->where('products.id', '=', $id)
         ->get();
         return view('admin.products.edit', [
             'brands' => $brands,
@@ -200,6 +201,7 @@ class ProductController extends Controller
             'cases' => $cases,
             'mouvements' => $mouvements,
             'materials' => $materials,
+            'product' => $product,
         ]); 
     }
 
