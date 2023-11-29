@@ -1,17 +1,20 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Models\Product;
 use Illuminate\View\View;
-use App\Models\ProductBrand;
 use App\Models\ProductCase;
-use App\Models\ProductCollection;
+use App\Models\ProductType;
+use App\Models\ProductBrand;
+use Illuminate\Http\Request;
+use App\Models\Product_image;
+use App\Models\Product_price;
 use App\Models\ProductGender;
 use App\Models\ProductMaterial;
 use App\Models\ProductMouvement;
-use App\Models\ProductType;
-use Illuminate\Http\Request;
+use App\Models\ProductCollection;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\RedirectResponse;
 
 class ProductController extends Controller
@@ -19,9 +22,17 @@ class ProductController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(): View
+    public function index()
     {
-        $products = Product::latest()->get();
+        // $products = Product::latest()->get();
+        $products = DB::table('products')
+        ->leftJoin('product_brands', 'products.id', '=', 'product_brands.id')
+        ->leftJoin('product_prices', 'products.id', '=', 'product_prices.id')
+        ->leftJoin('product_images', 'products.id', '=', 'product_images.id')
+        ->leftJoin('product_genders', 'products.id', '=', 'product_genders.id')
+        ->leftJoin('product_types', 'products.id', '=', 'product_types.id')
+        ->select('products.*', 'product_brands.brand_name', 'product_prices.price',  'product_prices.compare_at', 'product_images.main_photo', 'product_genders.gender_name', 'product_types.type_name')
+        ->get();
         return view('admin.products.index', ['products' => $products]);
     }
 
@@ -63,16 +74,9 @@ class ProductController extends Controller
             "photo_three"  => "image|mimes:jpg,png,webp,jpeg|max:2048",
             "photo_four"  => "image|mimes:jpg,png,webp,jpeg|max:2048",
             "price"  => "required|string",
-            "compare_at_price"  => "required|string",
+            "compare_at_price"  => "string",
             "stock"  => "required|string",
             "status"  => "required|string",
-           "product_brands_id" => "integer",
-           "product_cases_id" => "integer",
-           "product_mouvements_id" => "integer",
-           "product_types_id" => "integer",
-           "product_genders_id" => "integer",
-           "product_collections_id" => "integer",
-           "product_materials_id" => "integer",
         ]);
 
         //Moving images to the public folder
@@ -123,17 +127,28 @@ class ProductController extends Controller
             $request->file('photo_four')->move(public_path('assets/products/images'), $namePhotoFour);
         }
 
+        //Calling Product Image Model
+        $image = new Product_image;
+        $image->main_photo = $nameMainPhoto;
+        $image->photo_one = $namePhotoOne;
+        $image->photo_two = $namePhotoTwo;
+        $image->photo_three = $namePhotoThree;
+        $image->photo_four = $namePhotoFour;
+        $image->save();
+
+        // Calling the Product Price Model
+        $price = new Product_price;
+        $price->price = $request->price;
+        $price->compare_at = $request->compare_at;
+        $price->save();
+
         // Calling Product Model
         $product = new Product;
         $product->title = $request->title;
         $product->description = $request->description;
-        $product->main_photo =  $nameMainPhoto;
-        $product->photo_one =  $namePhotoOne;
-        $product->photo_two =  $namePhotoTwo;
-        $product->photo_three =  $namePhotoThree; 
-        $product->photo_four =  $namePhotoFour; 
-        $product->price = $request->price;
-        $product->compare_at_price = $request->compare_at_price; 
+        $product->product_image_id = $image->id;
+        $product->user_id = auth()->user()->id;
+        $product->product_price_id = $price->id; 
         $product->stock = $request->stock; 
         $product->status = $request->status;
         $product->product_brands_id = $request->brand;
@@ -162,7 +177,30 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        //
+        $genders = ProductGender::all();
+        $brands = ProductBrand::all();
+        $types = ProductType::all();
+        $collections = ProductCollection::all();
+        $cases = ProductCase::all();
+        $mouvements = ProductMouvement::all();
+        $materials = ProductMaterial::all();
+        $products = DB::table('products')
+        ->leftJoin('product_brands', 'products.id', '=', 'product_brands.id')
+        ->leftJoin('product_prices', 'products.id', '=', 'product_prices.id')
+        ->leftJoin('product_images', 'products.id', '=', 'product_images.id')
+        ->leftJoin('product_genders', 'products.id', '=', 'product_genders.id')
+        ->leftJoin('product_types', 'products.id', '=', 'product_types.id')
+        ->select('products.*', 'product_brands.brand_name', 'product_prices.price',  'product_prices.compare_at', 'product_images.main_photo', 'product_genders.gender_name', 'product_types.type_name')
+        ->get();
+        return view('admin.products.edit', [
+            'brands' => $brands,
+            'genders' => $genders,
+            'types' => $types,
+            'collections' => $collections,
+            'cases' => $cases,
+            'mouvements' => $mouvements,
+            'materials' => $materials,
+        ]); 
     }
 
     /**

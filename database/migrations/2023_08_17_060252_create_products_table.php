@@ -15,13 +15,9 @@ return new class extends Migration
             $table->id();
             $table->char('title', 100);
             $table->longText('description');
-            $table->binary('main_photo');
-            $table->binary('photo_one')->nullable();
-            $table->binary('photo_two')->nullable();
-            $table->binary('photo_three')->nullable();
-            $table->binary('photo_four')->nullable();          
-            $table->char('price', 50);
-            $table->char('compare_at_price', 50)->nullable();
+            $table->foreignId('product_image_id');
+            $table->foreignId('user_id');    
+            $table->foreignId('product_price_id');
             $table->string('stock')->default(0);
             $table->char('status', 20)->default('draft');
             $table->foreignId('product_brands_id')->nullable();

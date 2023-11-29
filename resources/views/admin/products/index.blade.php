@@ -4,6 +4,7 @@
             {{ __("Products") }}
         </h2>
     </x-slot>
+
     <div
         class="bg-white rounded-lg border border-gray-300 shadow-md mt-5 w-[90%] mx-auto overflow-scroll  whitespace-nowrap xl:w-[1200px] xl:mx-auto xl:overflow-hidden">
         <!-- Titles  -->
@@ -41,6 +42,7 @@
         </div>
         
         <!-- Table -->
+            
         <table class="w-full">
             <tr class="bg-gray-100 border border-b-gray-200 w-[1200px]">
                 <th class="text-sm font-normal py-1 border w-[150px]">Title</th>
@@ -50,7 +52,6 @@
                 <th class="text-sm font-normal py-1 border w-[150px]">Status</th>
                 <th class="text-sm font-normal py-1 border w-[150px]">Product Type</th>
                 <th class="text-sm font-normal py-1 border w-[150px]">Product Gender</th>
-                {{-- <th class="text-sm font-normal py-1 border w-[150px]">SKU</th> --}}
                 <th class="text-sm font-normal py-1 border w-[150px]">Actions</th>
             </tr>
             @foreach ($products as $product)            
@@ -64,11 +65,10 @@
                     </div>
                 </td>
                 <td class="text-sm font-normal  text-center h-[80px]">{{ $product->price }}</td>
-                <td class="text-sm font-normal  text-center h-[80px]">{{ $product->compare_at_price }}</td>
+                <td class="text-sm font-normal  text-center h-[80px]">{{ $product->compare_at }}</td>
                 <td class="text-sm font-normal  text-center h-[80px]">{{ $product->status }}</td>
-                <td class="text-sm font-normal  text-center h-[80px]">{{ $product->product_types_id }}</td>
-                <td class="text-sm font-normal  text-center h-[80px]">{{ $product->product_genders_id }}</td>
-                {{-- <td class="text-sm font-normal  text-center h-[80px]">320-333-222-11</td> --}}
+                <td class="text-sm font-normal  text-center h-[80px]">{{ $product->type_name }}</td>
+                <td class="text-sm font-normal  text-center h-[80px]">{{ $product->gender_name }}</td>
                 <td class="text-sm font-normal text-center h-[80px] w-[230px] flex justify-center items-center">
                     <a class="mr-2 h-0" href="{{ route("product.edit", $product->id) }}">
                         <button class="bg-green-700 w-16 py-1 rounded-md text-white font-semibold uppercase">

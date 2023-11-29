@@ -16,9 +16,9 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
                     <div class="hidden sm:flex sm:items-center sm:ml-6">
-                        <x-dropdown align="right" width="48">
+                        <x-dropdown  align="right" width="48">
                             <x-slot name="trigger">
-                                <x-nav-link class="hover:cursor-pointer" :active="request()->routeIs('Product.index')">
+                                <x-nav-link class="hover:cursor-pointer text-black" :active="request()->routeIs('Product.index')">
                                     {{ __('Product') }}
                                 </x-nav-link>
                             </x-slot>
@@ -33,6 +33,8 @@
                             </x-slot>
                         </x-dropdown>
                     </div>
+                    
+                    
                 </div>
             </div>
 

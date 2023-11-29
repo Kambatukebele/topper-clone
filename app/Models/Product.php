@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Product extends Model
 {
@@ -11,16 +12,11 @@ class Product extends Model
     protected $fillable = [
         "title",
         "description",
-        "main_photo",
-        "photo_one" ,
-        "photo_two" ,
-        "photo_three",
-        "photo_four",
-        "price",
-        "compare_at_price",
+        "product_image_id",
+        "product_price_id",
+        "user_id",
         "stock",
         "status",
-        "sku",
         "product_brand_id",
         "product_cases_id",
         "product_mouvements_id",
@@ -30,32 +26,40 @@ class Product extends Model
         "product_materials_id",
     ];
 
-    public function product_brands()
+    public function product_brand(): BelongsTo
     {
-        return $this->hasOne(ProductBrand::class);
+        return $this->belongsTo(ProductBrand::class, 'id', 'product_brand_id');
     }
-    public function product_cases()
+    public function product_case()
     {
-        return $this->hasOne(ProductCase::class);
+        return $this->belongsTo(ProductCase::class, 'product_id');
     }
-    public function product_mouvements()
+    public function product_mouvement()
     {
-        return $this->hasOne(ProductMouvement::class);
+        return $this->belongsTo(ProductMouvement::class, 'product_id');
     }
-    public function product_types()
+    public function product_type()
     {
-        return $this->hasOne(ProductType::class);
+        return $this->belongsTo(ProductType::class, 'product_id');
     }
-    public function product_genders()
+    public function product_gender()
     {
-        return $this->hasOne(ProductGender::class);
+        return $this->belongsTo(ProductGender::class, 'product_id');
     }
-    public function product_collections()
+    public function product_collection()
     {
-        return $this->hasOne(ProductCollection::class);
+        return $this->belongsTo(ProductCollection::class, 'product_id');
     }
-    public function product_materials()
+    public function product_material()
     {
-        return $this->hasOne(ProductMaterial::class);
+        return $this->belongsTo(ProductMaterial::class, 'product_id');
+    }
+    public function product_image(): BelongsTo
+    {
+        return $this->belongsTo(Product_image::class, 'product_id');
+    }
+    public function product_price(): BelongsTo
+    {
+        return $this->belongsTo(Product_price::class, 'product_id');
     }
 }
