@@ -4,7 +4,6 @@
             {{ __("Edit Product") }}
         </h2>
     </x-slot>
-    {{ $product }}
     <form enctype="multipart/form-data" method="POST" action="{{ route('product.store') }}"
         enctype="multipart/form-data" class="w-full lg:w-[900px] lg:mx-auto lg:flex lg:justify-between lg:items-start">
         @csrf
@@ -33,9 +32,7 @@
                         <label for="description" class="font-light text-sm text-gray-500">Description</label>
                     </div>
                     <div class="block">
-                        <textarea name="description" cols="30" rows="5" class="w-full rounded-lg text-sm">
-                        {{ old('description', $product[0]->description) }}
-                        </textarea>
+                        <textarea name="description" cols="30" rows="5" class="w-full rounded-lg text-sm">{{ old('description', $product[0]->description) }}</textarea>
                     </div>
                     @error('description')
                     <div class="text-sm my-1  text-red-900 pl-3">
@@ -53,8 +50,14 @@
                 </div>
                 <div class="border border-dashed p-5 my-3">
                     <div class="block lg:mx-20">
+                        @if ($product[0]->main_photo)
+                           <div class="w-[100px] h-[100px] mb-5">
+                                <img class="w-full h-full object-cover object-center" src="{{ url('/assets/products/images/' . $product[0]->main_photo) }}" alt="">
+                           </div>
+                        @endif
+                        <button type="button">Change image</button>
                         <label for="main_photo" class="text-xs">
-                            <input type="file" name="main_photo" value="">
+                            <input type="file" name="main_photo" id="main_photo" value="{{ old('main_photo', $product[0]->main_photo) }}">
                             <small class="text-xs text-gray-500">Main Image : PNG,JPG, JPEG, WEBP</small>
                         </label>
                     </div>
@@ -67,8 +70,13 @@
                 <!-- Photo one -->
                 <div class="border border-dashed p-5 my-3">
                     <div class="block lg:mx-20">
-                        <label for="main_photo" class="text-xs">
-                            <input type="file" name="photo_one" value="">
+                        @if ($product[0]->photo_one)
+                           <div class="w-[100px] h-[100px] mb-5">
+                                <img class="w-full h-full object-cover object-center" src="{{ url('/assets/products/images/' . $product[0]->photo_one) }}" alt="">
+                           </div>
+                        @endif
+                        <label for="photo_one" class="text-xs">
+                            <input type="file" name="photo_one" value="{{ old('photo_one') }}">
                             <small class="text-xs text-gray-500">Image one : PNG,JPG, JPEG, WEBP</small>
                         </label>
 
@@ -82,8 +90,13 @@
                 <!-- Photo two -->
                 <div class="border border-dashed p-5 my-3">
                     <div class="block lg:mx-20">
-                        <label for="main_photo" class="text-xs">
-                            <input type="file" name="photo_two" value="">
+                        <label for="main_two" class="text-xs">
+                            @if ($product[0]->photo_two)
+                           <div class="w-[100px] h-[100px] mb-5">
+                                <img class="w-full h-full object-cover object-center" src="{{ url('/assets/products/images/' . $product[0]->photo_two) }}" alt="">
+                           </div>
+                        @endif
+                            <input type="file" name="photo_two" value="{{ old('photo_two') }}">
                             <small class="text-xs text-gray-500">Image two : PNG,JPG, JPEG, WEBP</small>
                         </label>
 
@@ -97,8 +110,13 @@
                 <!-- Photo three -->
                 <div class="border border-dashed p-5 my-3">
                     <div class="block lg:mx-20">
-                        <label for="main_photo" class="text-xs">
-                            <input type="file" name="photo_three" value="">
+                        <label for="photo_three" class="text-xs">
+                            @if ($product[0]->photo_three)
+                                <div class="w-[100px] h-[100px] mb-5">
+                                        <img class="w-full h-full object-cover object-center" src="{{ url('/assets/products/images/' . $product[0]->photo_three) }}" alt="">
+                                </div>
+                            @endif
+                            <input type="file" name="photo_three" value="{{ old('photo_three') }}">
                             <small class="text-xs text-gray-500">Image three : PNG,JPG, JPEG, WEBP</small>
                         </label>
                     </div>
@@ -111,8 +129,13 @@
                 <!-- Logo brand -->
                 <div class="border border-dashed p-5 my-3">
                     <div class="block lg:mx-20">
-                        <label for="main_photo" class="text-xs">
-                            <input type="file" name="photo_four" value="">
+                        @if ($product[0]->photo_four)
+                           <div class="w-[100px] h-[100px] mb-5">
+                                <img class="w-full h-full object-cover object-center" src="{{ url('/assets/products/images/' . $product[0]->photo_four) }}" alt="">
+                           </div>
+                        @endif
+                        <label for="photo_four" class="text-xs">
+                            <input type="file" name="photo_four" value="{{ old('photo_four') }}">
                             <small class="text-xs text-gray-500">Photo Four : PNG,JPG, JPEG, WEBP</small>
                         </label>
                     </div>
@@ -201,6 +224,9 @@
                 <div class="font-semibold text-sm text-black my-3">Status</div>
                 <div class="block w-full mt-2">
                     <select name="status" id="" class="rounded-lg w-full text-sm">
+                        @if ($product[0]->status)
+                            <option value="{{ $product[0]->status }}" @selected(old('status'))>{{ Str::ucfirst($product[0]->status) }}</option>
+                        @endif
                         <option value="draft">Draft</option>
                         <option value="comming-soon">Comming soon</option>
                         <option value="Active">Active</option>
@@ -215,7 +241,9 @@
                     </div>
                     <div>
                         <select name="product_gender" id="" class="rounded-lg w-full text-sm">
-                            <option selected value="">Choose</option>
+                            @if ($product[0]->gender_name)
+                            <option value="{{ $product[0]->gender_name }}" @selected(old('gender_name'))>{{ Str::ucfirst($product[0]->gender_name) }}</option>
+                            @endif
                             @foreach ($genders as $gender)
                             <option value="{{ $gender->id }}">{{ Str::ucfirst($gender->gender_name) }}</option>
                             @endforeach
@@ -228,7 +256,9 @@
                     </div>
                     <div>
                         <select name="product_type" id="" class="rounded-lg w-full text-sm">
-                            <option selected value="">Choose</option>
+                            @if ($product[0]->type_name)
+                            <option value="{{ $product[0]->type_name }}" @selected(old('type_name'))>{{ Str::ucfirst($product[0]->type_name) }}</option>
+                            @endif
                             @foreach ($types as $type)
                             <option value="{{ $type->id }}">{{ Str::ucfirst($type->type_name) }}</option>
                             @endforeach
@@ -246,7 +276,9 @@
                     </div>
                     <div>
                         <select name="collections" class="rounded-lg w-full text-sm">
-                            <option selected value="">Choose</option>
+                            @if ($product[0]->collection_name)
+                            <option value="{{ $product[0]->collection_name }}" @selected(old('collection_name'))>{{ Str::ucfirst($product[0]->collection_name) }}</option>
+                            @endif
                             @foreach ($collections as $collection)
                             <option value="{{ $collection->id }}">{{ Str::ucfirst($collection->collection_name) }}</option>
                             @endforeach
@@ -277,7 +309,9 @@
                         </div>
                         <div class="block">
                             <select name="brand" class="rounded-lg w-full text-sm">
-                                <option selected value="">Choose</option>
+                                @if ($product[0]->brand_name)
+                                <option value="{{ $product[0]->brand_name }}" @selected(old('brand_name'))>{{ Str::ucfirst($product[0]->brand_name) }}</option>
+                                @endif
                                 @foreach ($brands as $brand)
                                 <option value="{{ $brand->id }}">{{ Str::ucfirst($brand->brand_name) }}</option>
                                 @endforeach
@@ -297,7 +331,9 @@
                         </div>
                         <div class="block">
                             <select name="case" class="rounded-lg w-full text-sm">
-                                <option selected value="">Choose</option>
+                                @if ($product[0]->case_name)
+                                <option value="{{ $product[0]->case_name }}" @selected(old('case_name'))>{{ Str::ucfirst($product[0]->case_name) }}</option>
+                                @endif
                                 @foreach ($cases as $case)
                                 <option value="{{ $case->id }}">{{ Str::ucfirst($case->case_name) }}</option>
                                 @endforeach
@@ -319,7 +355,9 @@
                         </div>
                         <div class="block">
                             <select name="mouvement" class="rounded-lg w-full text-sm">
-                                <option selected value="">Choose</option>
+                                @if ($product[0]->mouvement_name)
+                                <option value="{{ $product[0]->mouvement_name }}" @selected(old('mouvement_name'))>{{ Str::ucfirst($product[0]->mouvement_name) }}</option>
+                                @endif
                                 @foreach ($mouvements as $mouvement)
                                 <option value="{{ $mouvement->id }}">{{ Str::ucfirst($mouvement->mouvement_name) }}</option>
                                 @endforeach
@@ -340,7 +378,9 @@
                         </div>
                         <div class="block">
                             <select name="material" class="rounded-lg w-full text-sm">
-                                <option selected value="">Choose</option>
+                                @if ($product[0]->material_name)
+                                <option value="{{ $product[0]->material_name }}" @selected(old('material_name'))>{{ Str::ucfirst($product[0]->material_name) }}</option>
+                                @endif
                                 @foreach ($materials as $material)
                                 <option value="{{ $material->id }}">{{ Str::ucfirst($material->material_name) }}</option>
                                 @endforeach

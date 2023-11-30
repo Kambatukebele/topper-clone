@@ -39,6 +39,7 @@
             <main>
                 {{ $slot }}
             </main>
+            <script src="{{ url('/assets/js/product_edit.js') }}"></script>
         </div>
     </body>
 

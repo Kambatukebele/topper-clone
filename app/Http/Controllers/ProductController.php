@@ -26,12 +26,12 @@ class ProductController extends Controller
     {
         // $products = Product::latest()->get();
         $products = DB::table('products')
-        ->leftJoin('product_brands', 'products.id', '=', 'product_brands.id')
-        ->leftJoin('product_prices', 'products.id', '=', 'product_prices.id')
-        ->leftJoin('product_images', 'products.id', '=', 'product_images.id')
-        ->leftJoin('product_genders', 'products.id', '=', 'product_genders.id')
-        ->leftJoin('product_types', 'products.id', '=', 'product_types.id')
-        ->select('products.*', 'product_brands.brand_name', 'product_prices.price',  'product_prices.compare_at', 'product_images.main_photo', 'product_genders.gender_name', 'product_types.type_name')
+        ->leftJoin('product_brands', 'product_brands.id', '=', 'products.product_brands_id')
+        ->leftJoin('product_prices', 'product_prices.id', '=', 'products.product_price_id')
+        ->leftJoin('product_images', 'product_images.id', '=', 'products.product_image_id')
+        ->leftJoin('product_genders', 'product_genders.id', '=', 'products.product_genders_id')
+        ->leftJoin('product_types', 'product_types.id', '=', 'products.product_types_id')
+        ->select('products.*', 'product_brands.brand_name', 'product_prices.price', 'product_prices.compare_at', 'product_images.main_photo', 'product_genders.gender_name', 'product_types.type_name')
         ->get();
         return view('admin.products.index', ['products' => $products]);
     }
@@ -185,12 +185,16 @@ class ProductController extends Controller
         $mouvements = ProductMouvement::all();
         $materials = ProductMaterial::all();
         $product = DB::table('products')
-        ->leftJoin('product_brands', 'products.id', '=', 'product_brands.id')
-        ->leftJoin('product_prices', 'products.id', '=', 'product_prices.id')
-        ->leftJoin('product_images', 'products.id', '=', 'product_images.id')
-        ->leftJoin('product_genders', 'products.id', '=', 'product_genders.id')
-        ->leftJoin('product_types', 'products.id', '=', 'product_types.id')
-        ->select('products.*', 'product_brands.brand_name', 'product_prices.price',  'product_prices.compare_at', 'product_images.main_photo', 'product_genders.gender_name', 'product_types.type_name')
+        ->leftJoin('product_brands', 'product_brands.id', '=', 'products.product_brands_id')
+        ->leftJoin('product_prices', 'product_prices.id', '=', 'products.product_price_id')
+        ->leftJoin('product_images', 'product_images.id', '=', 'products.product_image_id')
+        ->leftJoin('product_genders', 'product_genders.id', '=', 'products.product_genders_id')
+        ->leftJoin('product_types', 'product_types.id', '=', 'products.product_types_id')
+        ->leftJoin('product_collections', 'product_collections.id', '=', 'products.product_collections_id')
+        ->leftJoin('product_mouvements', 'product_mouvements.id', '=', 'products.product_mouvements_id')
+        ->leftJoin('product_cases', 'product_cases.id', '=', 'products.product_cases_id')
+        ->leftJoin('product_materials', 'product_materials.id', '=', 'products.product_materials_id')
+        ->select('products.*', 'product_brands.brand_name', 'product_prices.price',  'product_prices.compare_at', 'product_images.main_photo', 'product_images.photo_one', 'product_images.photo_two', 'product_images.photo_three', 'product_images.photo_four','product_genders.gender_name', 'product_types.type_name', 'product_collections.collection_name', 'product_cases.case_name', 'product_mouvements.mouvement_name', 'product_materials.material_name')
         ->where('products.id', '=', $id)
         ->get();
         return view('admin.products.edit', [
@@ -210,7 +214,21 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        //
+         //Validate Product inputs
+         $validated = $request->validate([
+            "title" => "required|string",
+            "description" => "required|string",
+            "main_photo" => "required|image|mimes:jpg,png,webp,jpeg|max:2048",
+            "photo_one"  => "image|mimes:jpg,png,webp,jpeg|max:2048",
+            "photo_two"  => "image|mimes:jpg,png,webp,jpeg|max:2048",
+            "photo_three"  => "image|mimes:jpg,png,webp,jpeg|max:2048",
+            "photo_four"  => "image|mimes:jpg,png,webp,jpeg|max:2048",
+            "price"  => "required|string",
+            "compare_at_price"  => "string",
+            "stock"  => "required|string",
+            "status"  => "required|string",
+        ]);
+
     }
 
     /**
