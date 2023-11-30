@@ -4,9 +4,9 @@
             {{ __("Edit Product") }}
         </h2>
     </x-slot>
-    <form enctype="multipart/form-data" method="POST" action="{{ route('product.store') }}"
-        enctype="multipart/form-data" class="w-full lg:w-[900px] lg:mx-auto lg:flex lg:justify-between lg:items-start">
+    <form enctype="multipart/form-data" method="POST" action="{{ route('product.update', $product[0]->id) }}" class="w-full lg:w-[900px] lg:mx-auto lg:flex lg:justify-between lg:items-start">
         @csrf
+        @method('PUT')
         <!-- Left Side -->
         <div class="w-[90%] mx-auto md:w-[560px]  lg:w-[510px]">
             <!-- Title and Description Block -->
@@ -55,7 +55,9 @@
                                 <img class="w-full h-full object-cover object-center" src="{{ url('/assets/products/images/' . $product[0]->main_photo) }}" alt="">
                            </div>
                         @endif
-                        <button type="button">Change image</button>
+                        {{-- <button class="bg-gray-200 py-1 px-2 text-xs rounded cursor-pointer mb-5" type="button" id="btn-main_photo">
+                            Change image
+                        </button> --}}
                         <label for="main_photo" class="text-xs">
                             <input type="file" name="main_photo" id="main_photo" value="{{ old('main_photo', $product[0]->main_photo) }}">
                             <small class="text-xs text-gray-500">Main Image : PNG,JPG, JPEG, WEBP</small>
@@ -242,7 +244,7 @@
                     <div>
                         <select name="product_gender" id="" class="rounded-lg w-full text-sm">
                             @if ($product[0]->gender_name)
-                            <option value="{{ $product[0]->gender_name }}" @selected(old('gender_name'))>{{ Str::ucfirst($product[0]->gender_name) }}</option>
+                            <option value="{{ $product[0]->product_genders_id }}" @selected(old('gender_name'))>{{ Str::ucfirst($product[0]->gender_name) }}</option>
                             @endif
                             @foreach ($genders as $gender)
                             <option value="{{ $gender->id }}">{{ Str::ucfirst($gender->gender_name) }}</option>
@@ -257,7 +259,7 @@
                     <div>
                         <select name="product_type" id="" class="rounded-lg w-full text-sm">
                             @if ($product[0]->type_name)
-                            <option value="{{ $product[0]->type_name }}" @selected(old('type_name'))>{{ Str::ucfirst($product[0]->type_name) }}</option>
+                            <option value="{{ $product[0]->product_types_id }}" @selected(old('type_name'))>{{ Str::ucfirst($product[0]->type_name) }}</option>
                             @endif
                             @foreach ($types as $type)
                             <option value="{{ $type->id }}">{{ Str::ucfirst($type->type_name) }}</option>
@@ -277,7 +279,7 @@
                     <div>
                         <select name="collections" class="rounded-lg w-full text-sm">
                             @if ($product[0]->collection_name)
-                            <option value="{{ $product[0]->collection_name }}" @selected(old('collection_name'))>{{ Str::ucfirst($product[0]->collection_name) }}</option>
+                            <option value="{{ $product[0]->product_collections_id }}" @selected(old('collection_name'))>{{ Str::ucfirst($product[0]->collection_name) }}</option>
                             @endif
                             @foreach ($collections as $collection)
                             <option value="{{ $collection->id }}">{{ Str::ucfirst($collection->collection_name) }}</option>
@@ -299,6 +301,7 @@
                     @enderror
                 </div> --}}
             </div>
+           
             <!-- Addtional Information -->
             <div class="w-full my-5 bg-white shadow-md p-3 border border-gray-300 rounded-lg">
                 <div class="font-semibold text-sm text-black my-3">Additional Information</div>
@@ -310,7 +313,7 @@
                         <div class="block">
                             <select name="brand" class="rounded-lg w-full text-sm">
                                 @if ($product[0]->brand_name)
-                                <option value="{{ $product[0]->brand_name }}" @selected(old('brand_name'))>{{ Str::ucfirst($product[0]->brand_name) }}</option>
+                                <option value="{{ $product[0]->product_brands_id }}" @selected(old('brand_name'))>{{ Str::ucfirst($product[0]->brand_name) }}</option>
                                 @endif
                                 @foreach ($brands as $brand)
                                 <option value="{{ $brand->id }}">{{ Str::ucfirst($brand->brand_name) }}</option>
@@ -332,7 +335,7 @@
                         <div class="block">
                             <select name="case" class="rounded-lg w-full text-sm">
                                 @if ($product[0]->case_name)
-                                <option value="{{ $product[0]->case_name }}" @selected(old('case_name'))>{{ Str::ucfirst($product[0]->case_name) }}</option>
+                                <option value="{{ $product[0]->product_cases_id }}" @selected(old('case_name'))>{{ Str::ucfirst($product[0]->case_name) }}</option>
                                 @endif
                                 @foreach ($cases as $case)
                                 <option value="{{ $case->id }}">{{ Str::ucfirst($case->case_name) }}</option>
@@ -356,7 +359,7 @@
                         <div class="block">
                             <select name="mouvement" class="rounded-lg w-full text-sm">
                                 @if ($product[0]->mouvement_name)
-                                <option value="{{ $product[0]->mouvement_name }}" @selected(old('mouvement_name'))>{{ Str::ucfirst($product[0]->mouvement_name) }}</option>
+                                <option value="{{ $product[0]->product_mouvements_id }}" @selected(old('mouvement_name'))>{{ Str::ucfirst($product[0]->mouvement_name) }}</option>
                                 @endif
                                 @foreach ($mouvements as $mouvement)
                                 <option value="{{ $mouvement->id }}">{{ Str::ucfirst($mouvement->mouvement_name) }}</option>
@@ -379,7 +382,7 @@
                         <div class="block">
                             <select name="material" class="rounded-lg w-full text-sm">
                                 @if ($product[0]->material_name)
-                                <option value="{{ $product[0]->material_name }}" @selected(old('material_name'))>{{ Str::ucfirst($product[0]->material_name) }}</option>
+                                <option value="{{ $product[0]->product_materials_id }}" @selected(old('material_name'))>{{ Str::ucfirst($product[0]->material_name) }}</option>
                                 @endif
                                 @foreach ($materials as $material)
                                 <option value="{{ $material->id }}">{{ Str::ucfirst($material->material_name) }}</option>
