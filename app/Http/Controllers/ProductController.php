@@ -237,10 +237,11 @@ class ProductController extends Controller
                 ->where('products.id', '=', $id)
                 ->get();
         //Main Photo image
-        if($image[0]->main_photo !== ""){
+        if($request->file('main_photo') === null){
             $nameMainPhoto = $image[0]->main_photo;
-        }elseif($image[0]->main_photo == ""){
-                //Remove old picture 
+        }elseif($request->file('main_photo') !== null){           
+            // if there is not picture yet in the DB
+            if(!empty($image[0]->main_photo) && isset($image[0]->main_photo)){
                 $imagePath = public_path('assets/products/images/') . $image[0]->main_photo;
                 if(file_exists($imagePath)){
                     unlink($imagePath);
@@ -249,72 +250,105 @@ class ProductController extends Controller
                 $New_main_photo = time() . '-' . $request->file('main_photo')->getClientOriginalName();
                 $sizeMainPhoto = $request->file('main_photo')->getSize();
                 $nameMainPhoto = $New_main_photo;
-                $request->file('main_photo')->move(public_path('assets/products/images'), $nameMainPhoto);
+                $request->file('main_photo')->move(public_path('assets/products/images'), $nameMainPhoto); 
+            }else{
+                $New_main_photo = time() . '-' . $request->file('main_photo')->getClientOriginalName();
+                $sizeMainPhoto = $request->file('main_photo')->getSize();
+                $nameMainPhoto = $New_main_photo;
+                $request->file('main_photo')->move(public_path('assets/products/images'), $nameMainPhoto); 
             }
-        
-
+                       
+        }
         //photo_one
         if($request->file('photo_one') === null){
-            $namePhotoOne = "";
-        }else{
-             //Remove old picture   
-            $imagePathOne = public_path("assets/products/images/" . $image[0]->photo_one);
-            if(file_exists($imagePathOne)){
-            unlink($imagePathOne);
-            }
-            //Add new photo
-            $newPhotoOne = time() . '-' . $request->file('photo_one')->getClientOriginalName();
-            $sizePhotoOne = $request->file('photo_one')->getSize();
-            $namePhotoOne = $newPhotoOne;
-            $request->file('photo_one')->move(public_path('assets/products/images'), $namePhotoOne);
+            $namePhotoOne = $image[0]->photo_one;
+        }elseif($request->file('photo_one') !== null){           
+            // if there is not picture yet in the DB
+            if(!empty($image[0]->photo_one) && isset($image[0]->photo_one)){
+                $imagePathOne = public_path('assets/products/images/') . $image[0]->photo_one;
+                if(file_exists($imagePathOne)){
+                    unlink($imagePathOne);
+                }
+                //Add the new photo            
+                $newPhotoOne = time() . '-' . $request->file('photo_one')->getClientOriginalName();
+                $sizePhotoOne = $request->file('photo_one')->getSize();
+                $namePhotoOne = $newPhotoOne;
+                $request->file('photo_one')->move(public_path('assets/products/images'), $namePhotoOne); 
+            }else{
+                $newPhotoOne = time() . '-' . $request->file('photo_one')->getClientOriginalName();
+                $sizePhotoOne = $request->file('photo_one')->getSize();
+                $namePhotoOne = $newPhotoOne;
+                $request->file('photo_one')->move(public_path('assets/products/images'), $namePhotoOne); 
+            }               
         }
         // "photo_two"
         if($request->file('photo_two') === null){
-            $namePhotoTwo = "";
-        }else{
-            //Remove old picture   
-            $imagePathTwo = public_path("assets/products/images/" . $image[0]->photo_two);
-            if(file_exists($imagePathTwo)){
-                unlink($imagePathTwo);
-            }
-            //Add new photo
-            $newPhotoTwo = time() . '-' . $request->file('photo_two')->getClientOriginalName();
-            $sizePhotoTwo = $request->file('photo_two')->getSize();
-            $namePhotoTwo = $newPhotoTwo;
-            $request->file('photo_two')->move(public_path('assets/products/images'), $namePhotoTwo);
+            $namePhotoTwo = $image[0]->photo_two;
+        }elseif($request->file('photo_two') !== null){           
+            // if there is not picture yet in the DB
+            if(!empty($image[0]->photo_two) && isset($image[0]->photo_two)){
+                $imagePathTwo = public_path('assets/products/images/') . $image[0]->photo_two;
+                if(file_exists($imagePathTwo)){
+                    unlink($imagePathTwo);
+                }
+                //Add the new photo            
+                $newPhotoTwo = time() . '-' . $request->file('photo_two')->getClientOriginalName();
+                $sizePhotoTwo = $request->file('photo_two')->getSize();
+                $namePhotoTwo = $newPhotoTwo;
+                $request->file('photo_two')->move(public_path('assets/products/images'), $namePhotoTwo); 
+            }else{
+                $newPhotoTwo = time() . '-' . $request->file('photo_two')->getClientOriginalName();
+                $sizePhotoTwo = $request->file('photo_two')->getSize();
+                $namePhotoTwo = $newPhotoTwo;
+                $request->file('photo_two')->move(public_path('assets/products/images'), $namePhotoTwo); 
+            }               
         }
         // "photo_three"
         if($request->file('photo_three') === null){
-            $namePhotoThree = "";
-        }else{
-            //Remove old picture   
-            $imagePathThree = public_path("assets/products/images/" . $image[0]->photo_three);
-            if(file_exists($imagePathThree)){
-                unlink($imagePathThree);
-            }
-            //Add new photo
-            $newPhotoThree = time() . '-' . $request->file('photo_three')->getClientOriginalName();
-            $sizePhotoThree = $request->file('photo_three')->getSize();
-            $namePhotoThree = $newPhotoThree;
-            $request->file('photo_three')->move(public_path('assets/products/images'), $namePhotoThree);
+            $namePhotoThree = $image[0]->photo_three;
+        }elseif($request->file('photo_three') !== null){           
+            // if there is not picture yet in the DB
+            if(!empty($image[0]->photo_three) && isset($image[0]->photo_three)){
+                $imagePathThree = public_path('assets/products/images/') . $image[0]->photo_three;
+                if(file_exists($imagePathThree)){
+                    unlink($imagePathThree);
+                }
+                //Add the new photo            
+                $newPhotoThree = time() . '-' . $request->file('photo_three')->getClientOriginalName();
+                $sizePhotoThree = $request->file('photo_three')->getSize();
+                $namePhotoThree = $newPhotoThree;
+                $request->file('photo_three')->move(public_path('assets/products/images'), $namePhotoThree); 
+            }else{
+                $newPhotoThree = time() . '-' . $request->file('photo_three')->getClientOriginalName();
+                $sizePhotoThree = $request->file('photo_three')->getSize();
+                $namePhotoThree = $newPhotoThree;
+                $request->file('photo_three')->move(public_path('assets/products/images'), $namePhotoThree); 
+            }               
         }
-        // "photo_three"
+        // "photo_four"
         if($request->file('photo_four') === null){
-            $namePhotoFour = "";
-        }else{
-            //Remove old picture   
-            $imagePathFour = public_path("assets/products/images/" . $image[0]->photo_four);
-            if(isset($imagePathFour) && file_exists($imagePathFour)){
-                unlink($imagePathFour);
-            }
-            //Add new photo
-            $newPhotoFour = time() . '-' . $request->file('photo_four')->getClientOriginalName();
-            $sizePhotoFour = $request->file('photo_four')->getSize();
-            $namePhotoFour = $newPhotoFour;
-            $request->file('photo_four')->move(public_path('assets/products/images'), $namePhotoFour);
+            $namePhotoFour = $image[0]->photo_four;
+        }elseif($request->file('photo_four') !== null){           
+            // if there is not picture yet in the DB
+            if(!empty($image[0]->photo_four) && isset($image[0]->photo_four)){
+                $imagePathFour = public_path('assets/products/images/') . $image[0]->photo_four;
+                if(file_exists($imagePathFour)){
+                    unlink($imagePathFour);
+                }
+                //Add the new photo            
+                $newPhotoFour = time() . '-' . $request->file('photo_four')->getClientOriginalName();
+                $sizePhotoFour = $request->file('photo_four')->getSize();
+                $namePhotoFour = $newPhotoFour;
+                $request->file('photo_four')->move(public_path('assets/products/images'), $namePhotoFour); 
+            }else{
+                $newPhotoFour = time() . '-' . $request->file('photo_four')->getClientOriginalName();
+                $sizePhotoFour = $request->file('photo_four')->getSize();
+                $namePhotoFour = $newPhotoFour;
+                $request->file('photo_four')->move(public_path('assets/products/images'), $namePhotoFour); 
+            }               
         }
         //Calling Product Image Model
-        $images = new Product_image;
+        $images = Product_image::find($image[0]->product_image_id);
         $images->main_photo = $nameMainPhoto;
         $images->photo_one = $namePhotoOne;
         $images->photo_two = $namePhotoTwo;
@@ -322,33 +356,32 @@ class ProductController extends Controller
         $images->photo_four = $namePhotoFour;
         $images->save();
 
-         //Calling the Product Price Model
-         $price = new Product_price;
-         $price->price = $request->price;
-         $price->compare_at = $request->compare_at;
-         $price->save();
+        //Calling the Product Price Model
+        $price = Product_price::find($image[0]->product_price_id);
+        $price->price = $request->price;
+        $price->compare_at = $request->compare_at;
+        $price->save();
  
-         //Calling Product Model
-         $product = Product::find($id);
-         $product->title = $request->title;
-         $product->description = $request->description;
-         $product->user_id = auth()->user()->id;
-         $product->product_image_id = $images->id;
-         $product->product_price_id = $price->id; 
-         $product->stock = $request->stock; 
-         $product->status = $request->status;
-         $product->product_brands_id = $request->brand;
-         $product->product_cases_id = $request->case;
-         $product->product_mouvements_id = $request->mouvement;
-         $product->product_types_id = $request->product_type;
-         $product->product_genders_id = $request->product_gender;
-         $product->product_collections_id = $request->collections;
-         $product->product_materials_id = $request->material;            
+        //Calling Product Model
+        $product = Product::find($id);
+        $product->title = $request->title;
+        $product->description = $request->description;
+        $product->user_id = auth()->user()->id;
+        $product->product_image_id = $images->id;
+        $product->product_price_id = $price->id; 
+        $product->stock = $request->stock; 
+        $product->status = $request->status;
+        $product->product_brands_id = $request->brand;
+        $product->product_cases_id = $request->case;
+        $product->product_mouvements_id = $request->mouvement;
+        $product->product_types_id = $request->product_type;
+        $product->product_genders_id = $request->product_gender;
+        $product->product_collections_id = $request->collections;
+        $product->product_materials_id = $request->material;            
          
-         $product->save();
-         session()->flash('success', "The product has been created successfully!"); 
-         return redirect(route('product.index')); 
-
+        $product->save();
+        session()->flash('success', "The product has been updated successfully!"); 
+        return redirect(route('product.index')); 
     }
 
     /**
@@ -356,7 +389,46 @@ class ProductController extends Controller
      */
     public function destroy(Product $product, $id)
     {
+        $image = DB::table('products')
+                ->join('product_images', 'product_images.id', '=', 'products.product_image_id')
+                ->select('products.*', 'main_photo', 'photo_one', 'photo_two', 
+                'photo_three', 'photo_four')
+                ->where('products.id', '=', $id)
+                ->get();
+       
+        //Calling Product Image Model
+        $images = Product_image::find($image[0]->product_image_id);
+        $imagePathMain = public_path('assets/products/images/') . $image[0]->main_photo;
+        $imagePathOne = public_path('assets/products/images/') . $image[0]->photo_one;
+        $imagePathTwo = public_path('assets/products/images/') . $image[0]->photo_two;
+        $imagePathThree = public_path('assets/products/images/') . $image[0]->photo_three;
+        $imagePathFour = public_path('assets/products/images/') . $image[0]->photo_four;
+
+        if(file_exists($imagePathMain)){
+            unlink($imagePathMain);
+        }
+        if(file_exists($imagePathOne)){
+            unlink($imagePathOne);
+        }
+        if(file_exists($imagePathTwo)){
+            unlink($imagePathTwo);
+        }
+        if(file_exists($imagePathThree)){
+            unlink($imagePathThree);
+        }
+        if(file_exists($imagePathFour)){
+            unlink($imagePathFour);
+        }
+        $images->delete();
+
+        //Calling the Product Price Model
+        $price = Product_price::find($image[0]->product_price_id);
+        $price->delete();
+ 
+        //Calling Product Model
         $product = Product::find($id);
         $product->delete();
+        session()->flash('success', "The product has been deleted successfully!"); 
+        return redirect(route('product.index')); 
     }
 }
