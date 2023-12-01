@@ -31,7 +31,15 @@ class ProductController extends Controller
         ->leftJoin('product_images', 'product_images.id', '=', 'products.product_image_id')
         ->leftJoin('product_genders', 'product_genders.id', '=', 'products.product_genders_id')
         ->leftJoin('product_types', 'product_types.id', '=', 'products.product_types_id')
-        ->select('products.*', 'product_brands.brand_name', 'product_prices.price', 'product_prices.compare_at', 'product_images.main_photo', 'product_genders.gender_name', 'product_types.type_name')
+        ->select('products.*',
+            'product_brands.brand_name',
+            'product_prices.price',
+            'product_prices.compare_at',
+            'product_images.main_photo',
+            'product_genders.gender_name',
+            'product_types.type_name'
+        )
+        ->orderBy('products.id', 'desc')
         ->get();
         return view('admin.products.index', ['products' => $products]);
     }
@@ -160,8 +168,7 @@ class ProductController extends Controller
         $product->product_materials_id = $request->material;            
         
         $product->save();
-        session()->flash('success', "The product has been created successfully!"); 
-        return redirect(route('product.index')); 
+        return redirect(route('product.index'))->with('success', "The product has been created successfully!"); 
     }
 
     /**
@@ -380,8 +387,7 @@ class ProductController extends Controller
         $product->product_materials_id = $request->material;            
          
         $product->save();
-        session()->flash('success', "The product has been updated successfully!"); 
-        return redirect(route('product.index')); 
+        return redirect(route('product.index'))->with('success', "The product has been updated successfully!"); 
     }
 
     /**
@@ -428,7 +434,7 @@ class ProductController extends Controller
         //Calling Product Model
         $product = Product::find($id);
         $product->delete();
-        session()->flash('success', "The product has been deleted successfully!"); 
-        return redirect(route('product.index')); 
+        return redirect(route('product.index'))->with('success', "The product has been deleted successfully!"); 
+        
     }
 }

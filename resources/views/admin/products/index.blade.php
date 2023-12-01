@@ -3,7 +3,12 @@
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __("Products") }}
         </h2>
-    </x-slot>
+    </x-slot>    
+    @if (session('success'))
+        <div id="show_my_session" class="bg-green-700 text-white text-center w-[500px] my-3 p-3 rounded-lg mx-96">
+            {{ session('success') }}
+        </div>
+    @endif
     <div
         class="bg-white rounded-lg border border-gray-300 shadow-md mt-5 w-[90%] mx-auto overflow-scroll  whitespace-nowrap xl:w-[1200px] xl:mx-auto xl:overflow-hidden">
         <!-- Titles  -->
@@ -65,9 +70,15 @@
                 </td>
                 <td class="text-sm font-normal  text-center h-[80px]">{{ $product->price }}</td>
                 <td class="text-sm font-normal  text-center h-[80px]">{{ $product->compare_at }}</td>
-                <td class="text-sm font-normal  text-center h-[80px]">{{ $product->status }}</td>
+                <td class="text-sm font-normal  text-center h-[80px]">
+                    @if ($product->status == 'draft')
+                        <p class="text-red-700 font-bold">{{ Str::ucfirst($product->status) }}</p>
+                        @else
+                        <p class="text-green-700 font-bold">{{ Str::ucfirst($product->status) }}</p>
+                    @endif
+                </td>
                 <td class="text-sm font-normal  text-center h-[80px]">{{ $product->type_name }}</td>
-                <td class="text-sm font-normal  text-center h-[80px]">{{ $product->gender_name }}</td>
+                <td class="text-sm font-normal  text-center h-[80px]">{{ Str::ucfirst($product->gender_name) }}</td>
                 <td class="text-sm font-normal text-center h-[80px] w-[230px] flex justify-center items-center">
                     <a class="mr-2 h-0" href="{{ route("product.edit", $product->id) }}">
                         <button class="bg-green-700 w-16 py-1 rounded-md text-white font-semibold uppercase">
